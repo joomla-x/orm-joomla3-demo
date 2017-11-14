@@ -1,0 +1,21 @@
+{
+  "name": "joomla-x/orm-joomla3-demo",
+  "description": "Joomla!X ORM with Joomla!3",
+  "homepage": "https://github.com/joomla-x/orm-joomla3-demo",
+  "minimum-stability": "stable",
+  "license": "GPL2+",
+  "authors": [
+    {
+      "name": "Niels Braczek",
+      "email": "nbraczek@bsds.de"
+    }
+  ],
+  "require": {
+    "joomla-x/orm-joomla3": "dev-master",
+
+    "joomla-x/entities-joomla3": "dev-master",
+    "joomla-x/orm": "dev-master",
+    "joomla-x/event": "3.0.x-dev",
+    "joomla-x/di": "3.0.x-dev"
+  }
+}

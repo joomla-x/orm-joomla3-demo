@@ -1,8 +1,23 @@
-# How To Install the Joomla!X ORM on Joomla!3
+# How To Use the Joomla!X ORM on Joomla!3
 
- 1. Unpack the development version of the desired Joomla! release into your working directory. To obtain the zip file, go to the Joomla! CMS repository on GitHub and select the version tag, eg. [Joomla! 3.8.2](https://github.com/joomla/joomla-cms/tree/3.8.2). Click on `Clone or download`, then on `Download ZIP`.
+## Installation
 
-    You need the development version, because is contains the `composer.json` and `composer.lock` files with the existing dependencies.
+ 1. Install Joomla! 3 as usual.
+ 2. Add a `composer.json` file:
+    ```json
+    {
+      "minimum-stability": "stable",
+      "require": {
+        "joomla-x/orm-joomla3": "dev-master",
     
- 2. Go through the installation procedure as usual.
- 
+        "joomla-x/entities-joomla3": "dev-master",
+        "joomla-x/orm": "dev-master",
+        "joomla-x/event": "3.0.x-dev",
+        "joomla-x/di": "3.0.x-dev"
+      }
+    }
+    ```
+    Once the `joomla-x` packages have stable releases, only the the first entry, `"joomla-x/orm-joomla3": "dev-master"`, will be needed. In the current state, the other lines allow to use the development versions although minimum stability is set to `stable` for all other dependencies.
+
+## Using the ORM in a Component
+
