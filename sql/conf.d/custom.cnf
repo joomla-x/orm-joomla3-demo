@@ -1,0 +1,2 @@
+[mysql]
+max_allowed_packet = 20M

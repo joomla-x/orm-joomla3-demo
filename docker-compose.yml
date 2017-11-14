@@ -1,0 +1,43 @@
+version: "3"
+services:
+  web:
+    build: web
+    volumes:
+      - '$PWD/web/conf:/etc/apache2/sites-enabled'
+      - '$PWD/src:/var/www/html/demo.dev'
+    links:
+      - sql
+    environment:
+      VIRTUAL_HOST: demo.dev
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+  sql:
+    image: 'mysql:latest'
+    volumes:
+      - '$PWD/sql/conf.d:/etc/mysql/conf.d'
+      - '$PWD/sql/data:/var/lib/mysql'
+    environment:
+      MYSQL_DATABASE: joomla
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: sqladmin
+      MYSQL_PASSWORD: sqladmin
+    user: $UID
+    networks:
+      - webnet
+  pma:
+    image: 'phpmyadmin/phpmyadmin'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: sqladmin
+      MYSQL_PASSWORD: sqladmin
+      VIRTUAL_HOST: pma.dev
+    links:
+      - sql:db
+    ports:
+      - "8080:80"
+    networks:
+      - webnet
+networks:
+  webnet:
