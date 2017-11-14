@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Extension" role="default">
+  <storage>
+    <default table="extensions" primary="extension_id"/>
+  </storage>
+  <fields>
+    <field name="extension_id" type="int" label="COM_EXTENSION_FIELD_EXTENSION_ID_LABEL" description="COM_EXTENSION_FIELD_EXTENSION_ID_DESC" hint="COM_EXTENSION_FIELD_EXTENSION_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="package_id" type="int" label="COM_EXTENSION_FIELD_PACKAGE_ID_LABEL" description="COM_EXTENSION_FIELD_PACKAGE_ID_DESC" hint="COM_EXTENSION_FIELD_PACKAGE_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="name" type="varchar" role="title" label="COM_EXTENSION_FIELD_NAME_LABEL" description="COM_EXTENSION_FIELD_NAME_DESC" hint="COM_EXTENSION_FIELD_NAME_HINT" required="true"/>
+    <field name="type" type="varchar" label="COM_EXTENSION_FIELD_TYPE_LABEL" description="COM_EXTENSION_FIELD_TYPE_DESC" hint="COM_EXTENSION_FIELD_TYPE_HINT" required="true"/>
+    <field name="element" type="varchar" label="COM_EXTENSION_FIELD_ELEMENT_LABEL" description="COM_EXTENSION_FIELD_ELEMENT_DESC" hint="COM_EXTENSION_FIELD_ELEMENT_HINT" required="true"/>
+    <field name="folder" type="varchar" label="COM_EXTENSION_FIELD_FOLDER_LABEL" description="COM_EXTENSION_FIELD_FOLDER_DESC" hint="COM_EXTENSION_FIELD_FOLDER_HINT" required="true"/>
+    <field name="client_id" type="tinyint" label="COM_EXTENSION_FIELD_CLIENT_ID_LABEL" description="COM_EXTENSION_FIELD_CLIENT_ID_DESC" hint="COM_EXTENSION_FIELD_CLIENT_ID_HINT" required="true"/>
+    <field name="enabled" type="tinyint" label="COM_EXTENSION_FIELD_ENABLED_LABEL" description="COM_EXTENSION_FIELD_ENABLED_DESC" hint="COM_EXTENSION_FIELD_ENABLED_HINT" default="0" required="true"/>
+    <field name="access" type="int" label="COM_EXTENSION_FIELD_ACCESS_LABEL" description="COM_EXTENSION_FIELD_ACCESS_DESC" hint="COM_EXTENSION_FIELD_ACCESS_HINT" default="1" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="protected" type="tinyint" label="COM_EXTENSION_FIELD_PROTECTED_LABEL" description="COM_EXTENSION_FIELD_PROTECTED_DESC" hint="COM_EXTENSION_FIELD_PROTECTED_HINT" default="0" required="true"/>
+    <field name="manifest_cache" type="text" label="COM_EXTENSION_FIELD_MANIFEST_CACHE_LABEL" description="COM_EXTENSION_FIELD_MANIFEST_CACHE_DESC" hint="COM_EXTENSION_FIELD_MANIFEST_CACHE_HINT" required="true"/>
+    <field name="params" type="text" label="COM_EXTENSION_FIELD_PARAMS_LABEL" description="COM_EXTENSION_FIELD_PARAMS_DESC" hint="COM_EXTENSION_FIELD_PARAMS_HINT" required="true"/>
+    <field name="custom_data" type="text" label="COM_EXTENSION_FIELD_CUSTOM_DATA_LABEL" description="COM_EXTENSION_FIELD_CUSTOM_DATA_DESC" hint="COM_EXTENSION_FIELD_CUSTOM_DATA_HINT" required="true"/>
+    <field name="system_data" type="text" label="COM_EXTENSION_FIELD_SYSTEM_DATA_LABEL" description="COM_EXTENSION_FIELD_SYSTEM_DATA_DESC" hint="COM_EXTENSION_FIELD_SYSTEM_DATA_HINT" required="true"/>
+    <field name="checked_out" type="int" role="checked_out_by" label="COM_EXTENSION_FIELD_CHECKED_OUT_LABEL" description="COM_EXTENSION_FIELD_CHECKED_OUT_DESC" hint="COM_EXTENSION_FIELD_CHECKED_OUT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="checked_out_time" type="datetime" role="checked_out_time" label="COM_EXTENSION_FIELD_CHECKED_OUT_TIME_LABEL" description="COM_EXTENSION_FIELD_CHECKED_OUT_TIME_DESC" hint="COM_EXTENSION_FIELD_CHECKED_OUT_TIME_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="ordering" type="int" role="ordering" label="COM_EXTENSION_FIELD_ORDERING_LABEL" description="COM_EXTENSION_FIELD_ORDERING_DESC" hint="COM_EXTENSION_FIELD_ORDERING_HINT" default="0">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="state" type="int" role="state" label="COM_EXTENSION_FIELD_STATE_LABEL" description="COM_EXTENSION_FIELD_STATE_DESC" hint="COM_EXTENSION_FIELD_STATE_HINT" default="0">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="package" entity="Joomla3\Entity\Extension" reference="package_id"/>
+    <belongsTo name="extension" entity="Extension" reference="package_id"/>
+    <hasMany name="parts" entity="Joomla3\Entity\Extension" reference="package_id"/>
+    <hasMany name="extensions" entity="Extension" reference="package_id"/>
+    <hasMany name="menus" entity="Menu" reference="component_id"/>
+    <hasMany name="postinstall_messages" entity="PostinstallMessage" reference="extension_id"/>
+    <hasMany name="schemas" entity="Schema" reference="extension_id"/>
+    <hasMany name="updates" entity="Update" reference="extension_id"/>
+    <hasMany name="updatesiteextensions" entity="UpdateSiteExtension" reference="extension_id"/>
+  </relations>
+</entity>

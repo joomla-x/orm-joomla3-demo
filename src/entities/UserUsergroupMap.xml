@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\UserUsergroupMap" role="map">
+  <storage>
+    <default table="user_usergroup_map" primary="user_id,group_id"/>
+  </storage>
+  <fields>
+    <field name="user_id" type="int" label="COM_USERUSERGROUPMAP_FIELD_USER_ID_LABEL" description="COM_USERUSERGROUPMAP_FIELD_USER_ID_DESC" hint="COM_USERUSERGROUPMAP_FIELD_USER_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="group_id" type="int" label="COM_USERUSERGROUPMAP_FIELD_GROUP_ID_LABEL" description="COM_USERUSERGROUPMAP_FIELD_GROUP_ID_DESC" hint="COM_USERUSERGROUPMAP_FIELD_GROUP_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="user" entity="Joomla3\Entity\User" reference="user_id"/>
+    <belongsTo name="group" entity="Joomla3\Entity\Usergroup" reference="group_id"/>
+    <belongsTo name="usergroup" entity="Usergroup" reference="group_id"/>
+  </relations>
+</entity>

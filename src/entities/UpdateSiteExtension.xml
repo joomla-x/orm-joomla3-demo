@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\UpdateSiteExtension" role="map">
+  <storage>
+    <default table="update_sites_extensions" primary="update_site_id,extension_id"/>
+  </storage>
+  <fields>
+    <field name="update_site_id" type="int" label="COM_UPDATESITEEXTENSION_FIELD_UPDATE_SITE_ID_LABEL" description="COM_UPDATESITEEXTENSION_FIELD_UPDATE_SITE_ID_DESC" hint="COM_UPDATESITEEXTENSION_FIELD_UPDATE_SITE_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="extension_id" type="int" label="COM_UPDATESITEEXTENSION_FIELD_EXTENSION_ID_LABEL" description="COM_UPDATESITEEXTENSION_FIELD_EXTENSION_ID_DESC" hint="COM_UPDATESITEEXTENSION_FIELD_EXTENSION_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="update_site" entity="Joomla3\Entity\UpdateSite" reference="update_site_id"/>
+    <belongsTo name="extension" entity="Joomla3\Entity\Extension" reference="extension_id"/>
+  </relations>
+</entity>

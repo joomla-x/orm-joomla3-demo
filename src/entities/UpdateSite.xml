@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\UpdateSite" role="default">
+  <storage>
+    <default table="update_sites" primary="update_site_id"/>
+  </storage>
+  <fields>
+    <field name="update_site_id" type="int" label="COM_UPDATESITE_FIELD_UPDATE_SITE_ID_LABEL" description="COM_UPDATESITE_FIELD_UPDATE_SITE_ID_DESC" hint="COM_UPDATESITE_FIELD_UPDATE_SITE_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="name" type="varchar" role="title" label="COM_UPDATESITE_FIELD_NAME_LABEL" description="COM_UPDATESITE_FIELD_NAME_DESC" hint="COM_UPDATESITE_FIELD_NAME_HINT" default=""/>
+    <field name="type" type="varchar" label="COM_UPDATESITE_FIELD_TYPE_LABEL" description="COM_UPDATESITE_FIELD_TYPE_DESC" hint="COM_UPDATESITE_FIELD_TYPE_HINT" default=""/>
+    <field name="location" type="text" label="COM_UPDATESITE_FIELD_LOCATION_LABEL" description="COM_UPDATESITE_FIELD_LOCATION_DESC" hint="COM_UPDATESITE_FIELD_LOCATION_HINT" required="true"/>
+    <field name="enabled" type="int" label="COM_UPDATESITE_FIELD_ENABLED_LABEL" description="COM_UPDATESITE_FIELD_ENABLED_DESC" hint="COM_UPDATESITE_FIELD_ENABLED_HINT" default="0">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="last_check_timestamp" type="bigint" label="COM_UPDATESITE_FIELD_LAST_CHECK_TIMESTAMP_LABEL" description="COM_UPDATESITE_FIELD_LAST_CHECK_TIMESTAMP_DESC" hint="COM_UPDATESITE_FIELD_LAST_CHECK_TIMESTAMP_HINT" default="0"/>
+    <field name="extra_query" type="varchar" label="COM_UPDATESITE_FIELD_EXTRA_QUERY_LABEL" description="COM_UPDATESITE_FIELD_EXTRA_QUERY_DESC" hint="COM_UPDATESITE_FIELD_EXTRA_QUERY_HINT" default=""/>
+  </fields>
+  <relations>
+    <hasMany name="updates" entity="Update" reference="update_site_id"/>
+    <hasMany name="update_site_extensions" entity="UpdateSiteExtension" reference="update_site_id"/>
+  </relations>
+</entity>

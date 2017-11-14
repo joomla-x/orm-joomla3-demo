@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\UserKey" role="default">
+  <storage>
+    <default table="user_keys" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" label="COM_USERKEY_FIELD_ID_LABEL" description="COM_USERKEY_FIELD_ID_DESC" hint="COM_USERKEY_FIELD_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="user_id" type="varchar" label="COM_USERKEY_FIELD_USER_ID_LABEL" description="COM_USERKEY_FIELD_USER_ID_DESC" hint="COM_USERKEY_FIELD_USER_ID_HINT" required="true"/>
+    <field name="token" type="varchar" label="COM_USERKEY_FIELD_TOKEN_LABEL" description="COM_USERKEY_FIELD_TOKEN_DESC" hint="COM_USERKEY_FIELD_TOKEN_HINT" required="true"/>
+    <field name="series" type="varchar" label="COM_USERKEY_FIELD_SERIES_LABEL" description="COM_USERKEY_FIELD_SERIES_DESC" hint="COM_USERKEY_FIELD_SERIES_HINT" required="true"/>
+    <field name="invalid" type="tinyint" label="COM_USERKEY_FIELD_INVALID_LABEL" description="COM_USERKEY_FIELD_INVALID_DESC" hint="COM_USERKEY_FIELD_INVALID_HINT" required="true"/>
+    <field name="time" type="varchar" label="COM_USERKEY_FIELD_TIME_LABEL" description="COM_USERKEY_FIELD_TIME_DESC" hint="COM_USERKEY_FIELD_TIME_HINT" required="true"/>
+    <field name="uastring" type="varchar" label="COM_USERKEY_FIELD_UASTRING_LABEL" description="COM_USERKEY_FIELD_UASTRING_DESC" hint="COM_USERKEY_FIELD_UASTRING_HINT" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="user" entity="Joomla3\Entity\User" reference="user_id"/>
+  </relations>
+</entity>

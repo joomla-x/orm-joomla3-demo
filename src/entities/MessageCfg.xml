@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\MessageCfg" role="default">
+  <storage>
+    <default table="messages_cfg"/>
+  </storage>
+  <fields>
+    <field name="user_id" type="int" label="COM_MESSAGECFG_FIELD_USER_ID_LABEL" description="COM_MESSAGECFG_FIELD_USER_ID_DESC" hint="COM_MESSAGECFG_FIELD_USER_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="cfg_name" type="varchar" label="COM_MESSAGECFG_FIELD_CFG_NAME_LABEL" description="COM_MESSAGECFG_FIELD_CFG_NAME_DESC" hint="COM_MESSAGECFG_FIELD_CFG_NAME_HINT" default="" required="true"/>
+    <field name="cfg_value" type="varchar" label="COM_MESSAGECFG_FIELD_CFG_VALUE_LABEL" description="COM_MESSAGECFG_FIELD_CFG_VALUE_DESC" hint="COM_MESSAGECFG_FIELD_CFG_VALUE_HINT" default="" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="user" entity="User" reference="user_id"/>
+  </relations>
+</entity>

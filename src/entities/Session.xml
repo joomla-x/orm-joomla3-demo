@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Session" role="default">
+  <storage>
+    <default table="session" primary="session_id"/>
+  </storage>
+  <fields>
+    <field name="session_id" type="varchar" label="COM_SESSION_FIELD_SESSION_ID_LABEL" description="COM_SESSION_FIELD_SESSION_ID_DESC" hint="COM_SESSION_FIELD_SESSION_ID_HINT" default="" required="true"/>
+    <field name="client_id" type="tinyint" label="COM_SESSION_FIELD_CLIENT_ID_LABEL" description="COM_SESSION_FIELD_CLIENT_ID_DESC" hint="COM_SESSION_FIELD_CLIENT_ID_HINT" default="NULL"/>
+    <field name="guest" type="tinyint" label="COM_SESSION_FIELD_GUEST_LABEL" description="COM_SESSION_FIELD_GUEST_DESC" hint="COM_SESSION_FIELD_GUEST_HINT" default="1"/>
+    <field name="time" type="varchar" label="COM_SESSION_FIELD_TIME_LABEL" description="COM_SESSION_FIELD_TIME_DESC" hint="COM_SESSION_FIELD_TIME_HINT" default=""/>
+    <field name="data" type="mediumtext" label="COM_SESSION_FIELD_DATA_LABEL" description="COM_SESSION_FIELD_DATA_DESC" hint="COM_SESSION_FIELD_DATA_HINT"/>
+    <field name="userid" type="int" label="COM_SESSION_FIELD_USERID_LABEL" description="COM_SESSION_FIELD_USERID_DESC" hint="COM_SESSION_FIELD_USERID_HINT" default="0">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="username" type="varchar" label="COM_SESSION_FIELD_USERNAME_LABEL" description="COM_SESSION_FIELD_USERNAME_DESC" hint="COM_SESSION_FIELD_USERNAME_HINT" default=""/>
+  </fields>
+  <relations>
+    <belongsTo name="user" entity="User" reference="userid"/>
+  </relations>
+</entity>

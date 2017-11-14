@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\ContentType" role="lookup">
+  <storage>
+    <default table="content_types" primary="type_id"/>
+  </storage>
+  <fields>
+    <field name="type_id" type="int" label="COM_CONTENTTYPE_FIELD_TYPE_ID_LABEL" description="COM_CONTENTTYPE_FIELD_TYPE_ID_DESC" hint="COM_CONTENTTYPE_FIELD_TYPE_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="type_title" type="varchar" label="COM_CONTENTTYPE_FIELD_TYPE_TITLE_LABEL" description="COM_CONTENTTYPE_FIELD_TYPE_TITLE_DESC" hint="COM_CONTENTTYPE_FIELD_TYPE_TITLE_HINT" default="" required="true"/>
+    <field name="type_alias" type="varchar" label="COM_CONTENTTYPE_FIELD_TYPE_ALIAS_LABEL" description="COM_CONTENTTYPE_FIELD_TYPE_ALIAS_DESC" hint="COM_CONTENTTYPE_FIELD_TYPE_ALIAS_HINT" default="" required="true"/>
+    <field name="table" type="varchar" label="COM_CONTENTTYPE_FIELD_TABLE_LABEL" description="COM_CONTENTTYPE_FIELD_TABLE_DESC" hint="COM_CONTENTTYPE_FIELD_TABLE_HINT" default="" required="true"/>
+    <field name="rules" type="text" label="COM_CONTENTTYPE_FIELD_RULES_LABEL" description="COM_CONTENTTYPE_FIELD_RULES_DESC" hint="COM_CONTENTTYPE_FIELD_RULES_HINT" required="true"/>
+    <field name="field_mappings" type="text" label="COM_CONTENTTYPE_FIELD_FIELD_MAPPINGS_LABEL" description="COM_CONTENTTYPE_FIELD_FIELD_MAPPINGS_DESC" hint="COM_CONTENTTYPE_FIELD_FIELD_MAPPINGS_HINT" required="true"/>
+    <field name="router" type="varchar" label="COM_CONTENTTYPE_FIELD_ROUTER_LABEL" description="COM_CONTENTTYPE_FIELD_ROUTER_DESC" hint="COM_CONTENTTYPE_FIELD_ROUTER_HINT" default="" required="true"/>
+    <field name="content_history_options" type="json" label="COM_CONTENTTYPE_FIELD_CONTENT_HISTORY_OPTIONS_LABEL" description="COM_CONTENTTYPE_FIELD_CONTENT_HISTORY_OPTIONS_DESC" hint="COM_CONTENTTYPE_FIELD_CONTENT_HISTORY_OPTIONS_HINT"/>
+  </fields>
+  <relations/>
+</entity>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Update" role="default">
+  <storage>
+    <default table="updates" primary="update_id"/>
+  </storage>
+  <fields>
+    <field name="update_id" type="int" label="COM_UPDATE_FIELD_UPDATE_ID_LABEL" description="COM_UPDATE_FIELD_UPDATE_ID_DESC" hint="COM_UPDATE_FIELD_UPDATE_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="update_site_id" type="int" label="COM_UPDATE_FIELD_UPDATE_SITE_ID_LABEL" description="COM_UPDATE_FIELD_UPDATE_SITE_ID_DESC" hint="COM_UPDATE_FIELD_UPDATE_SITE_ID_HINT" default="0">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="extension_id" type="int" label="COM_UPDATE_FIELD_EXTENSION_ID_LABEL" description="COM_UPDATE_FIELD_EXTENSION_ID_DESC" hint="COM_UPDATE_FIELD_EXTENSION_ID_HINT" default="0">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="name" type="varchar" role="title" label="COM_UPDATE_FIELD_NAME_LABEL" description="COM_UPDATE_FIELD_NAME_DESC" hint="COM_UPDATE_FIELD_NAME_HINT" default=""/>
+    <field name="description" type="text" label="COM_UPDATE_FIELD_DESCRIPTION_LABEL" description="COM_UPDATE_FIELD_DESCRIPTION_DESC" hint="COM_UPDATE_FIELD_DESCRIPTION_HINT" required="true"/>
+    <field name="element" type="varchar" label="COM_UPDATE_FIELD_ELEMENT_LABEL" description="COM_UPDATE_FIELD_ELEMENT_DESC" hint="COM_UPDATE_FIELD_ELEMENT_HINT" default=""/>
+    <field name="type" type="varchar" label="COM_UPDATE_FIELD_TYPE_LABEL" description="COM_UPDATE_FIELD_TYPE_DESC" hint="COM_UPDATE_FIELD_TYPE_HINT" default=""/>
+    <field name="folder" type="varchar" label="COM_UPDATE_FIELD_FOLDER_LABEL" description="COM_UPDATE_FIELD_FOLDER_DESC" hint="COM_UPDATE_FIELD_FOLDER_HINT" default=""/>
+    <field name="client_id" type="tinyint" label="COM_UPDATE_FIELD_CLIENT_ID_LABEL" description="COM_UPDATE_FIELD_CLIENT_ID_DESC" hint="COM_UPDATE_FIELD_CLIENT_ID_HINT" default="0"/>
+    <field name="version" type="varchar" label="COM_UPDATE_FIELD_VERSION_LABEL" description="COM_UPDATE_FIELD_VERSION_DESC" hint="COM_UPDATE_FIELD_VERSION_HINT" default=""/>
+    <field name="data" type="text" label="COM_UPDATE_FIELD_DATA_LABEL" description="COM_UPDATE_FIELD_DATA_DESC" hint="COM_UPDATE_FIELD_DATA_HINT" required="true"/>
+    <field name="detailsurl" type="text" label="COM_UPDATE_FIELD_DETAILSURL_LABEL" description="COM_UPDATE_FIELD_DETAILSURL_DESC" hint="COM_UPDATE_FIELD_DETAILSURL_HINT" required="true"/>
+    <field name="infourl" type="text" label="COM_UPDATE_FIELD_INFOURL_LABEL" description="COM_UPDATE_FIELD_INFOURL_DESC" hint="COM_UPDATE_FIELD_INFOURL_HINT" required="true"/>
+    <field name="extra_query" type="varchar" label="COM_UPDATE_FIELD_EXTRA_QUERY_LABEL" description="COM_UPDATE_FIELD_EXTRA_QUERY_DESC" hint="COM_UPDATE_FIELD_EXTRA_QUERY_HINT" default=""/>
+  </fields>
+  <relations>
+    <belongsTo name="update_site" entity="UpdateSite" reference="update_site_id"/>
+    <belongsTo name="extension" entity="Joomla3\Entity\Extension" reference="extension_id"/>
+  </relations>
+</entity>

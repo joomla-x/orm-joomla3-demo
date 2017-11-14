@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Asset" role="default">
+  <storage>
+    <default table="assets" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" label="COM_ASSET_FIELD_ID_LABEL" description="COM_ASSET_FIELD_ID_DESC" hint="COM_ASSET_FIELD_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="parent_id" type="int" label="COM_ASSET_FIELD_PARENT_ID_LABEL" description="COM_ASSET_FIELD_PARENT_ID_DESC" hint="COM_ASSET_FIELD_PARENT_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="lft" type="int" label="COM_ASSET_FIELD_LFT_LABEL" description="COM_ASSET_FIELD_LFT_DESC" hint="COM_ASSET_FIELD_LFT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="rgt" type="int" label="COM_ASSET_FIELD_RGT_LABEL" description="COM_ASSET_FIELD_RGT_DESC" hint="COM_ASSET_FIELD_RGT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="level" type="int" label="COM_ASSET_FIELD_LEVEL_LABEL" description="COM_ASSET_FIELD_LEVEL_DESC" hint="COM_ASSET_FIELD_LEVEL_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="name" type="varchar" role="title" label="COM_ASSET_FIELD_NAME_LABEL" description="COM_ASSET_FIELD_NAME_DESC" hint="COM_ASSET_FIELD_NAME_HINT" required="true"/>
+    <field name="title" type="varchar" role="title" label="COM_ASSET_FIELD_TITLE_LABEL" description="COM_ASSET_FIELD_TITLE_DESC" hint="COM_ASSET_FIELD_TITLE_HINT" required="true"/>
+    <field name="rules" type="varchar" label="COM_ASSET_FIELD_RULES_LABEL" description="COM_ASSET_FIELD_RULES_DESC" hint="COM_ASSET_FIELD_RULES_HINT" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="parent" entity="Joomla3\Entity\Asset" reference="parent_id"/>
+    <belongsTo name="asset" entity="Asset" reference="parent_id"/>
+    <hasMany name="children" entity="Joomla3\Entity\Asset" reference="parent_id"/>
+    <hasMany name="articles" entity="Article" reference="asset_id"/>
+    <hasMany name="assets" entity="Asset" reference="parent_id"/>
+    <hasMany name="categories" entity="Category" reference="asset_id"/>
+    <hasMany name="fields" entity="Field" reference="asset_id"/>
+    <hasMany name="field_groups" entity="FieldGroup" reference="asset_id"/>
+    <hasMany name="languages" entity="Language" reference="asset_id"/>
+    <hasMany name="menu_types" entity="MenuType" reference="asset_id"/>
+    <hasMany name="modules" entity="Module" reference="asset_id"/>
+    <hasMany name="ucmcontents" entity="UcmContent" reference="asset_id"/>
+  </relations>
+</entity>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\UcmContent" role="default">
+  <storage>
+    <default table="ucm_content" primary="core_content_id"/>
+  </storage>
+  <fields>
+    <field name="core_content_id" type="int" label="COM_UCMCONTENT_FIELD_CORE_CONTENT_ID_LABEL" description="COM_UCMCONTENT_FIELD_CORE_CONTENT_ID_DESC" hint="COM_UCMCONTENT_FIELD_CORE_CONTENT_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_type_alias" type="varchar" label="COM_UCMCONTENT_FIELD_CORE_TYPE_ALIAS_LABEL" description="COM_UCMCONTENT_FIELD_CORE_TYPE_ALIAS_DESC" hint="COM_UCMCONTENT_FIELD_CORE_TYPE_ALIAS_HINT" default="" required="true"/>
+    <field name="core_title" type="varchar" label="COM_UCMCONTENT_FIELD_CORE_TITLE_LABEL" description="COM_UCMCONTENT_FIELD_CORE_TITLE_DESC" hint="COM_UCMCONTENT_FIELD_CORE_TITLE_HINT" default="" required="true"/>
+    <field name="core_alias" type="varchar" label="COM_UCMCONTENT_FIELD_CORE_ALIAS_LABEL" description="COM_UCMCONTENT_FIELD_CORE_ALIAS_DESC" hint="COM_UCMCONTENT_FIELD_CORE_ALIAS_HINT" default="" required="true"/>
+    <field name="core_body" type="mediumtext" label="COM_UCMCONTENT_FIELD_CORE_BODY_LABEL" description="COM_UCMCONTENT_FIELD_CORE_BODY_DESC" hint="COM_UCMCONTENT_FIELD_CORE_BODY_HINT" default="" required="true"/>
+    <field name="core_state" type="boolean" label="COM_UCMCONTENT_FIELD_CORE_STATE_LABEL" description="COM_UCMCONTENT_FIELD_CORE_STATE_DESC" hint="COM_UCMCONTENT_FIELD_CORE_STATE_HINT" default="0" required="true"/>
+    <field name="core_checked_out_time" type="varchar" label="COM_UCMCONTENT_FIELD_CORE_CHECKED_OUT_TIME_LABEL" description="COM_UCMCONTENT_FIELD_CORE_CHECKED_OUT_TIME_DESC" hint="COM_UCMCONTENT_FIELD_CORE_CHECKED_OUT_TIME_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="core_checked_out_user_id" type="int" label="COM_UCMCONTENT_FIELD_CORE_CHECKED_OUT_USER_ID_LABEL" description="COM_UCMCONTENT_FIELD_CORE_CHECKED_OUT_USER_ID_DESC" hint="COM_UCMCONTENT_FIELD_CORE_CHECKED_OUT_USER_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_access" type="int" label="COM_UCMCONTENT_FIELD_CORE_ACCESS_LABEL" description="COM_UCMCONTENT_FIELD_CORE_ACCESS_DESC" hint="COM_UCMCONTENT_FIELD_CORE_ACCESS_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_params" type="text" label="COM_UCMCONTENT_FIELD_CORE_PARAMS_LABEL" description="COM_UCMCONTENT_FIELD_CORE_PARAMS_DESC" hint="COM_UCMCONTENT_FIELD_CORE_PARAMS_HINT" default="" required="true"/>
+    <field name="core_featured" type="tinyint" label="COM_UCMCONTENT_FIELD_CORE_FEATURED_LABEL" description="COM_UCMCONTENT_FIELD_CORE_FEATURED_DESC" hint="COM_UCMCONTENT_FIELD_CORE_FEATURED_HINT" default="0" required="true"/>
+    <field name="core_metadata" type="varchar" label="COM_UCMCONTENT_FIELD_CORE_METADATA_LABEL" description="COM_UCMCONTENT_FIELD_CORE_METADATA_DESC" hint="COM_UCMCONTENT_FIELD_CORE_METADATA_HINT" default="" required="true"/>
+    <field name="core_created_user_id" type="int" label="COM_UCMCONTENT_FIELD_CORE_CREATED_USER_ID_LABEL" description="COM_UCMCONTENT_FIELD_CORE_CREATED_USER_ID_DESC" hint="COM_UCMCONTENT_FIELD_CORE_CREATED_USER_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_created_by_alias" type="varchar" label="COM_UCMCONTENT_FIELD_CORE_CREATED_BY_ALIAS_LABEL" description="COM_UCMCONTENT_FIELD_CORE_CREATED_BY_ALIAS_DESC" hint="COM_UCMCONTENT_FIELD_CORE_CREATED_BY_ALIAS_HINT" default="" required="true"/>
+    <field name="core_created_time" type="datetime" label="COM_UCMCONTENT_FIELD_CORE_CREATED_TIME_LABEL" description="COM_UCMCONTENT_FIELD_CORE_CREATED_TIME_DESC" hint="COM_UCMCONTENT_FIELD_CORE_CREATED_TIME_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="core_modified_user_id" type="int" label="COM_UCMCONTENT_FIELD_CORE_MODIFIED_USER_ID_LABEL" description="COM_UCMCONTENT_FIELD_CORE_MODIFIED_USER_ID_DESC" hint="COM_UCMCONTENT_FIELD_CORE_MODIFIED_USER_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_modified_time" type="datetime" label="COM_UCMCONTENT_FIELD_CORE_MODIFIED_TIME_LABEL" description="COM_UCMCONTENT_FIELD_CORE_MODIFIED_TIME_DESC" hint="COM_UCMCONTENT_FIELD_CORE_MODIFIED_TIME_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="core_language" type="char" label="COM_UCMCONTENT_FIELD_CORE_LANGUAGE_LABEL" description="COM_UCMCONTENT_FIELD_CORE_LANGUAGE_DESC" hint="COM_UCMCONTENT_FIELD_CORE_LANGUAGE_HINT" default="" required="true"/>
+    <field name="core_publish_up" type="datetime" label="COM_UCMCONTENT_FIELD_CORE_PUBLISH_UP_LABEL" description="COM_UCMCONTENT_FIELD_CORE_PUBLISH_UP_DESC" hint="COM_UCMCONTENT_FIELD_CORE_PUBLISH_UP_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="core_publish_down" type="datetime" label="COM_UCMCONTENT_FIELD_CORE_PUBLISH_DOWN_LABEL" description="COM_UCMCONTENT_FIELD_CORE_PUBLISH_DOWN_DESC" hint="COM_UCMCONTENT_FIELD_CORE_PUBLISH_DOWN_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="core_content_item_id" type="int" label="COM_UCMCONTENT_FIELD_CORE_CONTENT_ITEM_ID_LABEL" description="COM_UCMCONTENT_FIELD_CORE_CONTENT_ITEM_ID_DESC" hint="COM_UCMCONTENT_FIELD_CORE_CONTENT_ITEM_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="asset_id" type="int" label="COM_UCMCONTENT_FIELD_ASSET_ID_LABEL" description="COM_UCMCONTENT_FIELD_ASSET_ID_DESC" hint="COM_UCMCONTENT_FIELD_ASSET_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_images" type="text" label="COM_UCMCONTENT_FIELD_CORE_IMAGES_LABEL" description="COM_UCMCONTENT_FIELD_CORE_IMAGES_DESC" hint="COM_UCMCONTENT_FIELD_CORE_IMAGES_HINT" default="" required="true"/>
+    <field name="core_urls" type="text" label="COM_UCMCONTENT_FIELD_CORE_URLS_LABEL" description="COM_UCMCONTENT_FIELD_CORE_URLS_DESC" hint="COM_UCMCONTENT_FIELD_CORE_URLS_HINT" default="" required="true"/>
+    <field name="core_hits" type="int" label="COM_UCMCONTENT_FIELD_CORE_HITS_LABEL" description="COM_UCMCONTENT_FIELD_CORE_HITS_DESC" hint="COM_UCMCONTENT_FIELD_CORE_HITS_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_version" type="int" label="COM_UCMCONTENT_FIELD_CORE_VERSION_LABEL" description="COM_UCMCONTENT_FIELD_CORE_VERSION_DESC" hint="COM_UCMCONTENT_FIELD_CORE_VERSION_HINT" default="1" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_ordering" type="int" label="COM_UCMCONTENT_FIELD_CORE_ORDERING_LABEL" description="COM_UCMCONTENT_FIELD_CORE_ORDERING_DESC" hint="COM_UCMCONTENT_FIELD_CORE_ORDERING_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_metakey" type="text" label="COM_UCMCONTENT_FIELD_CORE_METAKEY_LABEL" description="COM_UCMCONTENT_FIELD_CORE_METAKEY_DESC" hint="COM_UCMCONTENT_FIELD_CORE_METAKEY_HINT" default="" required="true"/>
+    <field name="core_metadesc" type="text" label="COM_UCMCONTENT_FIELD_CORE_METADESC_LABEL" description="COM_UCMCONTENT_FIELD_CORE_METADESC_DESC" hint="COM_UCMCONTENT_FIELD_CORE_METADESC_HINT" default="" required="true"/>
+    <field name="core_catid" type="int" label="COM_UCMCONTENT_FIELD_CORE_CATID_LABEL" description="COM_UCMCONTENT_FIELD_CORE_CATID_DESC" hint="COM_UCMCONTENT_FIELD_CORE_CATID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="core_xreference" type="varchar" label="COM_UCMCONTENT_FIELD_CORE_XREFERENCE_LABEL" description="COM_UCMCONTENT_FIELD_CORE_XREFERENCE_DESC" hint="COM_UCMCONTENT_FIELD_CORE_XREFERENCE_HINT" default="" required="true"/>
+    <field name="core_type_id" type="int" label="COM_UCMCONTENT_FIELD_CORE_TYPE_ID_LABEL" description="COM_UCMCONTENT_FIELD_CORE_TYPE_ID_DESC" hint="COM_UCMCONTENT_FIELD_CORE_TYPE_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="author" entity="Joomla3\Entity\User" reference="core_created_user_id"/>
+    <belongsTo name="core_content_item" entity="@core_type_alias" reference="core_content_item_id"/>
+    <belongsTo name="asset" entity="Joomla3\Entity\Asset" reference="asset_id"/>
+    <belongsTo name="core_category" entity="Joomla3\Entity\Category" reference="core_catid"/>
+    <belongsTo name="core_type" entity="Joomla3\Entity\ContentType" reference="core_type_id"/>
+    <belongsTo name="user" entity="User" reference="core_created_user_id"/>
+    <hasMany name="content_tag_maps" entity="ContentTagMap" reference="core_content_id"/>
+    <hasMany name="ucm_bases" entity="UcmBase" reference="ucm_id"/>
+    <hasMany name="ucm_histories" entity="UcmHistory" reference="ucm_item_id"/>
+  </relations>
+</entity>

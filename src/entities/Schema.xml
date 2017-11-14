@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Schema" role="default">
+  <storage>
+    <default table="schemas" primary="extension_id,version_id"/>
+  </storage>
+  <fields>
+    <field name="extension_id" type="int" label="COM_SCHEMA_FIELD_EXTENSION_ID_LABEL" description="COM_SCHEMA_FIELD_EXTENSION_ID_DESC" hint="COM_SCHEMA_FIELD_EXTENSION_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="version_id" type="varchar" label="COM_SCHEMA_FIELD_VERSION_ID_LABEL" description="COM_SCHEMA_FIELD_VERSION_ID_DESC" hint="COM_SCHEMA_FIELD_VERSION_ID_HINT" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="extension" entity="Joomla3\Entity\Extension" reference="extension_id"/>
+  </relations>
+</entity>

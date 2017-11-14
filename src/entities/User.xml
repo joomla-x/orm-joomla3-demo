@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\User" role="default">
+  <storage>
+    <default table="users" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" input="number" label="JGLOBAL_FIELD_ID_LABEL" description="JGLOBAL_FIELD_ID_DESC" hint="JGLOBAL_FIELD_ID_HINT" default="0" required="true" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="name" type="varchar" role="title" input="text" label="COM_USERS_USER_FIELD_NAME_LABEL" description="COM_USERS_USER_FIELD_NAME_DESC" hint="COM_USERS_USER_FIELD_NAME_HINT" default="" required="true" size="30">
+      <validation rule="maxlen" value="30"/>
+    </field>
+    <field name="username" type="varchar" input="text" label="COM_USERS_USER_FIELD_USERNAME_LABEL" description="COM_USERS_USER_FIELD_USERNAME_DESC" hint="COM_USERS_USER_FIELD_USERNAME_HINT" default="" required="true" size="30">
+      <validation rule="maxlen" value="30"/>
+    </field>
+    <field name="email" type="varchar" input="email" label="JGLOBAL_EMAIL" description="COM_USERS_USER_FIELD_EMAIL_DESC" hint="COM_USERS_USER_FIELD_EMAIL_HINT" default="" required="true" size="30">
+      <validation rule="email" value="1"/>
+      <validation rule="maxlen" value="30"/>
+    </field>
+    <field name="password" type="varchar" input="password" label="JGLOBAL_PASSWORD" description="COM_USERS_USER_FIELD_PASSWORD_DESC" hint="COM_USERS_USER_FIELD_PASSWORD_HINT" default="" required="true" filter="raw" size="30">
+      <validation rule="password" value="1"/>
+      <validation rule="maxlen" value="30"/>
+    </field>
+    <field name="block" type="tinyint" input="radio" label="COM_USERS_USER_FIELD_BLOCK_LABEL" description="COM_USERS_USER_FIELD_BLOCK_DESC" hint="COM_USERS_USER_FIELD_BLOCK_HINT" default="0" required="true">
+      <option value="1">COM_USERS_USER_FIELD_BLOCK</option>
+      <option value="0">COM_USERS_USER_FIELD_ENABLE</option>
+    </field>
+    <field name="sendEmail" type="tinyint" input="radio" label="COM_USERS_USER_FIELD_SENDEMAIL_LABEL" description="COM_USERS_USER_FIELD_SENDEMAIL_DESC" hint="COM_USERS_USER_FIELD_SENDEMAIL_HINT" default="0">
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+    </field>
+    <field name="registerDate" type="datetime" input="calendar" label="COM_USERS_USER_FIELD_REGISTERDATE_LABEL" description="COM_USERS_USER_FIELD_REGISTERDATE_DESC" hint="COM_USERS_USER_FIELD_REGISTERDATE_HINT" default="0000-00-00 00:00:00" required="true" readonly="true" size="22" filter="user_utc">
+      <validation rule="maxlen" value="22"/>
+    </field>
+    <field name="lastvisitDate" type="datetime" input="calendar" label="COM_USERS_USER_FIELD_LASTVISIT_LABEL" description="COM_USERS_USER_FIELD_LASTVISIT_DESC" hint="COM_USERS_USER_FIELD_LASTVISIT_HINT" default="0000-00-00 00:00:00" required="true" readonly="true" size="22" filter="user_utc">
+      <validation rule="maxlen" value="22"/>
+    </field>
+    <field name="activation" type="varchar" label="COM_USER_FIELD_ACTIVATION_LABEL" description="COM_USER_FIELD_ACTIVATION_DESC" hint="COM_USER_FIELD_ACTIVATION_HINT" default="" required="true"/>
+    <field name="params" type="json" label="COM_USER_FIELD_PARAMS_LABEL" description="COM_USER_FIELD_PARAMS_DESC" hint="COM_USER_FIELD_PARAMS_HINT" required="true"/>
+    <field name="lastResetTime" type="datetime" input="calendar" label="COM_USERS_USER_FIELD_LASTRESET_LABEL" description="COM_USERS_USER_FIELD_LASTRESET_DESC" hint="COM_USERS_USER_FIELD_LASTRESET_HINT" default="0000-00-00 00:00:00" required="true" readonly="true" size="22" filter="user_utc">
+      <validation rule="maxlen" value="22"/>
+    </field>
+    <field name="resetCount" type="int" input="number" label="COM_USERS_USER_FIELD_RESETCOUNT_LABEL" description="COM_USERS_USER_FIELD_RESETCOUNT_DESC" hint="COM_USERS_USER_FIELD_RESETCOUNT_HINT" default="0" required="true" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="otpKey" type="varchar" label="COM_USER_FIELD_OTPKEY_LABEL" description="COM_USER_FIELD_OTPKEY_DESC" hint="COM_USER_FIELD_OTPKEY_HINT" default="" required="true"/>
+    <field name="otep" type="varchar" label="COM_USER_FIELD_OTEP_LABEL" description="COM_USER_FIELD_OTEP_DESC" hint="COM_USER_FIELD_OTEP_HINT" default="" required="true"/>
+    <field name="requireReset" type="tinyint" input="radio" label="COM_USERS_USER_FIELD_REQUIRERESET_LABEL" description="COM_USERS_USER_FIELD_REQUIRERESET_DESC" hint="COM_USERS_USER_FIELD_REQUIRERESET_HINT" default="0" required="true">
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+    </field>
+  </fields>
+  <relations>
+    <hasMany name="articles" entity="Article" reference="created_by"/>
+    <hasMany name="banners" entity="Banner" reference="created_by"/>
+    <hasMany name="categories" entity="Category" reference="created_user_id"/>
+    <hasMany name="contact_details" entity="ContactDetail" reference="user_id"/>
+    <hasMany name="fields" entity="Field" reference="created_user_id"/>
+    <hasMany name="fieldgroups" entity="FieldGroup" reference="created_by"/>
+    <hasMany name="messages" entity="Message" reference="user_id_to"/>
+    <hasMany name="message_cfgs" entity="MessageCfg" reference="user_id"/>
+    <hasMany name="newsfeeds" entity="Newsfeed" reference="created_by"/>
+    <hasMany name="sessions" entity="Session" reference="userid"/>
+    <hasMany name="tags" entity="Tag" reference="created_user_id"/>
+    <hasMany name="ucm_contents" entity="UcmContent" reference="core_created_user_id"/>
+    <hasMany name="ucmhistories" entity="UcmHistory" reference="editor_user_id"/>
+    <hasMany name="user_keys" entity="UserKey" reference="user_id"/>
+    <hasMany name="user_notes" entity="UserNote" reference="user_id"/>
+    <hasMany name="user_profiles" entity="UserProfile" reference="user_id"/>
+    <hasMany name="user_usergroup_maps" entity="UserUsergroupMap" reference="user_id"/>
+  </relations>
+</entity>

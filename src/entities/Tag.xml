@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Tag" role="default">
+  <storage>
+    <default table="tags" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" input="number" label="JGLOBAL_FIELD_ID_LABEL" description="JGLOBAL_FIELD_ID_DESC" hint="JGLOBAL_FIELD_ID_HINT" default="0" required="true" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="parent_id" type="int" input="tag" label="COM_TAGS_FIELD_PARENT_LABEL" description="COM_TAGS_FIELD_PARENT_DESC" hint="COM_TAGS_FIELD_PARENT_HINT" default="0" required="true">
+      <validation rule="notequals" value="1"/>
+      <validation rule="integer" value="1"/>
+      <option value="1">JNONE</option>
+    </field>
+    <field name="lft" type="int" input="hidden" label="COM_TAG_FIELD_LFT_LABEL" description="COM_TAG_FIELD_LFT_DESC" hint="COM_TAG_FIELD_LFT_HINT" default="0" required="true" filter="unset">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="rgt" type="int" input="hidden" label="COM_TAG_FIELD_RGT_LABEL" description="COM_TAG_FIELD_RGT_DESC" hint="COM_TAG_FIELD_RGT_HINT" default="0" required="true" filter="unset">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="level" type="int" input="hidden" label="COM_TAG_FIELD_LEVEL_LABEL" description="COM_TAG_FIELD_LEVEL_DESC" hint="COM_TAG_FIELD_LEVEL_HINT" default="0" required="true" filter="unset">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="path" type="varchar" input="text" label="CATEGORIES_PATH_LABEL" description="CATEGORIES_PATH_DESC" hint="CATEGORIES_PATH_HINT" default="" required="true" size="40" readonly="true">
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="title" type="varchar" role="title" input="text" label="JGLOBAL_TITLE" description="JFIELD_TITLE_DESC" hint="JFIELD_TITLE_HINT" required="true" size="40">
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="alias" type="varchar" input="text" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" default="" required="true" size="40">
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="note" type="varchar" input="text" label="COM_TAGS_FIELD_NOTE_LABEL" description="COM_TAGS_FIELD_NOTE_DESC" hint="COM_TAGS_FIELD_NOTE_HINT" default="" required="true" size="40">
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="description" type="mediumtext" input="editor" label="JGLOBAL_DESCRIPTION" description="COM_TAGS_DESCRIPTION_DESC" hint="COM_TAGS_DESCRIPTION_HINT" required="true" filter="JComponentHelper::filterText"/>
+    <field name="published" type="boolean" input="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" hint="JFIELD_PUBLISHED_HINT" default="0" required="true">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="checked_out" type="int" role="checked_out_by" input="hidden" label="COM_TAG_FIELD_CHECKED_OUT_LABEL" description="COM_TAG_FIELD_CHECKED_OUT_DESC" hint="COM_TAG_FIELD_CHECKED_OUT_HINT" default="0" required="true" filter="unset">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="checked_out_time" type="datetime" role="checked_out_time" input="hidden" label="COM_TAG_FIELD_CHECKED_OUT_TIME_LABEL" description="COM_TAG_FIELD_CHECKED_OUT_TIME_DESC" hint="COM_TAG_FIELD_CHECKED_OUT_TIME_HINT" default="0000-00-00 00:00:00" required="true" filter="unset"/>
+    <field name="access" type="int" input="accesslevel" label="JFIELD_ACCESS_LABEL" description="JFIELD_ACCESS_DESC" hint="JFIELD_ACCESS_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="params" type="json" label="COM_TAG_FIELD_PARAMS_LABEL" description="COM_TAG_FIELD_PARAMS_DESC" hint="COM_TAG_FIELD_PARAMS_HINT" required="true"/>
+    <field name="metadesc" type="varchar" input="textarea" label="JFIELD_META_DESCRIPTION_LABEL" description="JFIELD_META_DESCRIPTION_DESC" hint="JFIELD_META_DESCRIPTION_HINT" required="true"/>
+    <field name="metakey" type="varchar" input="textarea" label="JFIELD_META_KEYWORDS_LABEL" description="JFIELD_META_KEYWORDS_DESC" hint="JFIELD_META_KEYWORDS_HINT" required="true"/>
+    <field name="metadata" type="json" label="COM_TAG_FIELD_METADATA_LABEL" description="COM_TAG_FIELD_METADATA_DESC" hint="COM_TAG_FIELD_METADATA_HINT" required="true"/>
+    <field name="created_user_id" type="int" input="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="JGLOBAL_FIELD_CREATED_BY_DESC" hint="JGLOBAL_FIELD_CREATED_BY_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="created_time" type="datetime" role="created_time" input="calendar" label="JGLOBAL_CREATED_DATE" description="COM_TAGS_FIELD_CREATED_DATE_DESC" hint="COM_TAGS_FIELD_CREATED_DATE_HINT" default="0000-00-00 00:00:00" required="true" filter="user_utc" readonly="true"/>
+    <field name="created_by_alias" type="varchar" input="text" label="JGLOBAL_FIELD_CREATED_BY_ALIAS_LABEL" description="JGLOBAL_FIELD_CREATED_BY_ALIAS_DESC" hint="JGLOBAL_FIELD_CREATED_BY_ALIAS_HINT" default="" required="true" size="20">
+      <validation rule="maxlen" value="20"/>
+    </field>
+    <field name="modified_user_id" type="int" input="user" label="JGLOBAL_FIELD_MODIFIED_BY_LABEL" description="JGLOBAL_FIELD_MODIFIED_BY_DESC" hint="JGLOBAL_FIELD_MODIFIED_BY_HINT" default="0" required="true" readonly="true" filter="unset">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="modified_time" type="datetime" role="modified_time" input="calendar" label="JGLOBAL_FIELD_MODIFIED_LABEL" description="COM_TAGS_FIELD_MODIFIED_DESC" hint="COM_TAGS_FIELD_MODIFIED_HINT" default="0000-00-00 00:00:00" required="true" filter="user_utc" readonly="true"/>
+    <field name="images" type="json" label="COM_TAG_FIELD_IMAGES_LABEL" description="COM_TAG_FIELD_IMAGES_DESC" hint="COM_TAG_FIELD_IMAGES_HINT" required="true"/>
+    <field name="urls" type="text" label="COM_TAG_FIELD_URLS_LABEL" description="COM_TAG_FIELD_URLS_DESC" hint="COM_TAG_FIELD_URLS_HINT" required="true"/>
+    <field name="hits" type="int" role="hits" input="number" label="JGLOBAL_HITS" description="COM_TAGS_FIELD_HITS_DESC" hint="COM_TAGS_FIELD_HITS_HINT" default="0" required="true" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="language" type="char" input="contentlanguage" label="JFIELD_LANGUAGE_LABEL" description="COM_TAGS_FIELD_LANGUAGE_DESC" hint="COM_TAGS_FIELD_LANGUAGE_HINT" required="true">
+      <option value="*">JALL</option>
+    </field>
+    <field name="version" type="int" label="COM_TAG_FIELD_VERSION_LABEL" description="COM_TAG_FIELD_VERSION_DESC" hint="COM_TAG_FIELD_VERSION_HINT" default="1" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="publish_up" type="datetime" label="COM_TAG_FIELD_PUBLISH_UP_LABEL" description="COM_TAG_FIELD_PUBLISH_UP_DESC" hint="COM_TAG_FIELD_PUBLISH_UP_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="publish_down" type="datetime" label="COM_TAG_FIELD_PUBLISH_DOWN_LABEL" description="COM_TAG_FIELD_PUBLISH_DOWN_DESC" hint="COM_TAG_FIELD_PUBLISH_DOWN_HINT" default="0000-00-00 00:00:00" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="parent" entity="Joomla3\Entity\Tag" reference="parent_id"/>
+    <belongsTo name="author" entity="Joomla3\Entity\User" reference="created_user_id"/>
+    <belongsTo name="tag" entity="Tag" reference="parent_id"/>
+    <belongsTo name="user" entity="User" reference="created_user_id"/>
+    <hasMany name="children" entity="Joomla3\Entity\Tag" reference="parent_id"/>
+    <hasMany name="contenttagmaps" entity="ContentTagMap" reference="tag_id"/>
+    <hasMany name="tags" entity="Tag" reference="parent_id"/>
+  </relations>
+</entity>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\CoreLogSearch" role="default">
+  <storage>
+    <default table="core_log_searches"/>
+  </storage>
+  <fields>
+    <field name="search_term" type="varchar" label="COM_CORELOGSEARCH_FIELD_SEARCH_TERM_LABEL" description="COM_CORELOGSEARCH_FIELD_SEARCH_TERM_DESC" hint="COM_CORELOGSEARCH_FIELD_SEARCH_TERM_HINT" default="" required="true"/>
+    <field name="hits" type="int" role="hits" label="COM_CORELOGSEARCH_FIELD_HITS_LABEL" description="COM_CORELOGSEARCH_FIELD_HITS_DESC" hint="COM_CORELOGSEARCH_FIELD_HITS_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations/>
+</entity>

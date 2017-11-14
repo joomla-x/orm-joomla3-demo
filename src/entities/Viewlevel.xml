@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Viewlevel" role="lookup">
+  <storage>
+    <default table="viewlevels" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" input="hidden" label="COM_VIEWLEVEL_FIELD_ID_LABEL" description="COM_VIEWLEVEL_FIELD_ID_DESC" hint="COM_VIEWLEVEL_FIELD_ID_HINT" default="0" required="true" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="title" type="varchar" role="title" input="text" label="COM_USERS_LEVEL_FIELD_TITLE_LABEL" description="COM_USERS_LEVEL_FIELD_TITLE_DESC" hint="COM_USERS_LEVEL_FIELD_TITLE_HINT" default="" required="true" size="50">
+      <validation rule="maxlen" value="50"/>
+    </field>
+    <field name="ordering" type="int" role="ordering" input="text" label="JFIELD_ORDERING_LABEL" description="JFIELD_ORDERING_DESC" hint="JFIELD_ORDERING_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="rules" type="json" input="hidden" label="COM_VIEWLEVEL_FIELD_RULES_LABEL" description="COM_VIEWLEVEL_FIELD_RULES_DESC" hint="COM_VIEWLEVEL_FIELD_RULES_HINT" required="true" filter="int_array"/>
+  </fields>
+  <relations/>
+</entity>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\BannerClient" role="default">
+  <storage>
+    <default table="banner_clients" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" input="number" label="JGLOBAL_FIELD_ID_LABEL" description="JGLOBAL_FIELD_ID_DESC" hint="JGLOBAL_FIELD_ID_HINT" default="0" required="true" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="name" type="varchar" role="title" input="text" label="COM_BANNERS_FIELD_NAME_LABEL" description="COM_BANNERS_FIELD_CLIENT_NAME_DESC" hint="COM_BANNERS_FIELD_CLIENT_NAME_HINT" default="" required="true" size="40">
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="contact" type="varchar" input="text" label="COM_BANNERS_FIELD_CONTACT_LABEL" description="COM_BANNERS_FIELD_CONTACT_DESC" hint="COM_BANNERS_FIELD_CONTACT_HINT" default="" required="true" size="40">
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="email" type="varchar" input="email" label="COM_BANNERS_FIELD_EMAIL_LABEL" description="COM_BANNERS_FIELD_EMAIL_DESC" hint="COM_BANNERS_FIELD_EMAIL_HINT" default="" required="true" size="40">
+      <validation rule="email" value="1"/>
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="extrainfo" type="text" input="textarea" label="COM_BANNERS_FIELD_EXTRAINFO_LABEL" description="COM_BANNERS_FIELD_EXTRAINFO_DESC" hint="COM_BANNERS_FIELD_EXTRAINFO_HINT" required="true"/>
+    <field name="state" type="boolean" role="state" input="list" label="JSTATUS" description="COM_BANNERS_FIELD_CLIENT_STATE_DESC" hint="COM_BANNERS_FIELD_CLIENT_STATE_HINT" default="0" required="true">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="checked_out" type="int" role="checked_out_by" label="COM_BANNERCLIENT_FIELD_CHECKED_OUT_LABEL" description="COM_BANNERCLIENT_FIELD_CHECKED_OUT_DESC" hint="COM_BANNERCLIENT_FIELD_CHECKED_OUT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="checked_out_time" type="datetime" role="checked_out_time" label="COM_BANNERCLIENT_FIELD_CHECKED_OUT_TIME_LABEL" description="COM_BANNERCLIENT_FIELD_CHECKED_OUT_TIME_DESC" hint="COM_BANNERCLIENT_FIELD_CHECKED_OUT_TIME_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="metakey" type="text" input="textarea" label="JFIELD_META_KEYWORDS_LABEL" description="COM_BANNERS_FIELD_CLIENT_METAKEYWORDS_DESC" hint="COM_BANNERS_FIELD_CLIENT_METAKEYWORDS_HINT" required="true"/>
+    <field name="own_prefix" type="tinyint" input="radio" label="COM_BANNERS_FIELD_CLIENTOWNPREFIX_LABEL" description="COM_BANNERS_FIELD_CLIENTOWNPREFIX_DESC" hint="COM_BANNERS_FIELD_CLIENTOWNPREFIX_HINT" default="0" required="true">
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+    </field>
+    <field name="metakey_prefix" type="varchar" input="text" label="COM_BANNERS_FIELD_CLIENT_METAKEYWORDPREFIX_LABEL" description="COM_BANNERS_FIELD_CLIENT_METAKEYWORDPREFIX_DESC" hint="COM_BANNERS_FIELD_CLIENT_METAKEYWORDPREFIX_HINT" default="" required="true"/>
+    <field name="purchase_type" type="tinyint" input="list" label="COM_BANNERS_FIELD_PURCHASETYPE_LABEL" description="COM_BANNERS_FIELD_PURCHASETYPE_DESC" hint="COM_BANNERS_FIELD_PURCHASETYPE_HINT" default="-1" required="true">
+      <option value="-1">JGLOBAL_USE_GLOBAL</option>
+      <option value="1">COM_BANNERS_FIELD_VALUE_UNLIMITED</option>
+      <option value="2">COM_BANNERS_FIELD_VALUE_YEARLY</option>
+      <option value="3">COM_BANNERS_FIELD_VALUE_MONTHLY</option>
+      <option value="4">COM_BANNERS_FIELD_VALUE_WEEKLY</option>
+      <option value="5">COM_BANNERS_FIELD_VALUE_DAILY</option>
+    </field>
+    <field name="track_clicks" type="tinyint" input="list" label="COM_BANNERS_FIELD_TRACKCLICK_LABEL" description="COM_BANNERS_FIELD_TRACKCLICK_DESC" hint="COM_BANNERS_FIELD_TRACKCLICK_HINT" default="-1" required="true">
+      <option value="-1">JGLOBAL_USE_GLOBAL</option>
+      <option value="0">JNO</option>
+      <option value="1">JYES</option>
+    </field>
+    <field name="track_impressions" type="tinyint" input="list" label="COM_BANNERS_FIELD_TRACKIMPRESSION_LABEL" description="COM_BANNERS_FIELD_TRACKIMPRESSION_DESC" hint="COM_BANNERS_FIELD_TRACKIMPRESSION_HINT" default="-1" required="true">
+      <option value="-1">JGLOBAL_USE_GLOBAL</option>
+      <option value="0">JNO</option>
+      <option value="1">JYES</option>
+    </field>
+  </fields>
+  <relations>
+    <hasMany name="banners" entity="Banner" reference="cid"/>
+  </relations>
+</entity>

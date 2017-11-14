@@ -18,6 +18,10 @@
     }
     ```
     Once the `joomla-x` packages have stable releases, only the the first entry, `"joomla-x/orm-joomla3": "dev-master"`, will be needed. In the current state, the other lines allow to use the development versions although minimum stability is set to `stable` for all other dependencies.
+  3. Install the ORM:
+  ```bash
+  $ composer install
+  ```
 
 ## Using the ORM in a Component
 

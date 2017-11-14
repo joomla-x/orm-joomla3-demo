@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\FieldCategory" role="map">
+  <storage>
+    <default table="fields_categories" primary="field_id,category_id"/>
+  </storage>
+  <fields>
+    <field name="field_id" type="int" label="COM_FIELDCATEGORY_FIELD_FIELD_ID_LABEL" description="COM_FIELDCATEGORY_FIELD_FIELD_ID_DESC" hint="COM_FIELDCATEGORY_FIELD_FIELD_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="category_id" type="int" label="COM_FIELDCATEGORY_FIELD_CATEGORY_ID_LABEL" description="COM_FIELDCATEGORY_FIELD_CATEGORY_ID_DESC" hint="COM_FIELDCATEGORY_FIELD_CATEGORY_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="field" entity="Joomla3\Entity\Field" reference="field_id"/>
+    <belongsTo name="category" entity="Joomla3\Entity\Category" reference="category_id"/>
+  </relations>
+</entity>

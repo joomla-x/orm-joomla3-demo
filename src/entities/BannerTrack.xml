@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\BannerTrack" role="default">
+  <storage>
+    <default table="banner_tracks" primary="track_date,track_type,banner_id"/>
+  </storage>
+  <fields>
+    <field name="track_date" type="datetime" label="COM_BANNERTRACK_FIELD_TRACK_DATE_LABEL" description="COM_BANNERTRACK_FIELD_TRACK_DATE_DESC" hint="COM_BANNERTRACK_FIELD_TRACK_DATE_HINT" required="true"/>
+    <field name="track_type" type="int" label="COM_BANNERTRACK_FIELD_TRACK_TYPE_LABEL" description="COM_BANNERTRACK_FIELD_TRACK_TYPE_DESC" hint="COM_BANNERTRACK_FIELD_TRACK_TYPE_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="banner_id" type="int" label="COM_BANNERTRACK_FIELD_BANNER_ID_LABEL" description="COM_BANNERTRACK_FIELD_BANNER_ID_DESC" hint="COM_BANNERTRACK_FIELD_BANNER_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="count" type="int" label="COM_BANNERTRACK_FIELD_COUNT_LABEL" description="COM_BANNERTRACK_FIELD_COUNT_DESC" hint="COM_BANNERTRACK_FIELD_COUNT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="banner" entity="Joomla3\Entity\Banner" reference="banner_id"/>
+  </relations>
+</entity>

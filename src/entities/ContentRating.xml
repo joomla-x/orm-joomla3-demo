@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\ContentRating" role="default">
+  <storage>
+    <default table="content_rating" primary="content_id"/>
+  </storage>
+  <fields>
+    <field name="content_id" type="int" label="COM_CONTENTRATING_FIELD_CONTENT_ID_LABEL" description="COM_CONTENTRATING_FIELD_CONTENT_ID_DESC" hint="COM_CONTENTRATING_FIELD_CONTENT_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="rating_sum" type="int" label="COM_CONTENTRATING_FIELD_RATING_SUM_LABEL" description="COM_CONTENTRATING_FIELD_RATING_SUM_DESC" hint="COM_CONTENTRATING_FIELD_RATING_SUM_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="rating_count" type="int" label="COM_CONTENTRATING_FIELD_RATING_COUNT_LABEL" description="COM_CONTENTRATING_FIELD_RATING_COUNT_DESC" hint="COM_CONTENTRATING_FIELD_RATING_COUNT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="lastip" type="varchar" label="COM_CONTENTRATING_FIELD_LASTIP_LABEL" description="COM_CONTENTRATING_FIELD_LASTIP_DESC" hint="COM_CONTENTRATING_FIELD_LASTIP_HINT" default="" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="content" entity="Joomla3\Entity\Article" reference="content_id"/>
+  </relations>
+</entity>

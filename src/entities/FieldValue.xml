@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\FieldValue" role="default">
+  <storage>
+    <default table="fields_values"/>
+  </storage>
+  <fields>
+    <field name="field_id" type="int" label="COM_FIELDVALUE_FIELD_FIELD_ID_LABEL" description="COM_FIELDVALUE_FIELD_FIELD_ID_DESC" hint="COM_FIELDVALUE_FIELD_FIELD_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="item_id" type="varchar" label="COM_FIELDVALUE_FIELD_ITEM_ID_LABEL" description="COM_FIELDVALUE_FIELD_ITEM_ID_DESC" hint="COM_FIELDVALUE_FIELD_ITEM_ID_HINT" required="true"/>
+    <field name="value" type="text" label="COM_FIELDVALUE_FIELD_VALUE_LABEL" description="COM_FIELDVALUE_FIELD_VALUE_DESC" hint="COM_FIELDVALUE_FIELD_VALUE_HINT" default="" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="field" entity="Joomla3\Entity\Field" reference="field_id"/>
+    <belongsTo name="item" entity="@field.context" reference="item_id"/>
+  </relations>
+</entity>

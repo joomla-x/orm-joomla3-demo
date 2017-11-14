@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\UcmHistory" role="default">
+  <storage>
+    <default table="ucm_history" primary="version_id"/>
+  </storage>
+  <fields>
+    <field name="version_id" type="int" label="COM_UCMHISTORY_FIELD_VERSION_ID_LABEL" description="COM_UCMHISTORY_FIELD_VERSION_ID_DESC" hint="COM_UCMHISTORY_FIELD_VERSION_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="ucm_item_id" type="int" label="COM_UCMHISTORY_FIELD_UCM_ITEM_ID_LABEL" description="COM_UCMHISTORY_FIELD_UCM_ITEM_ID_DESC" hint="COM_UCMHISTORY_FIELD_UCM_ITEM_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="ucm_type_id" type="int" label="COM_UCMHISTORY_FIELD_UCM_TYPE_ID_LABEL" description="COM_UCMHISTORY_FIELD_UCM_TYPE_ID_DESC" hint="COM_UCMHISTORY_FIELD_UCM_TYPE_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="version_note" type="varchar" label="COM_UCMHISTORY_FIELD_VERSION_NOTE_LABEL" description="COM_UCMHISTORY_FIELD_VERSION_NOTE_DESC" hint="COM_UCMHISTORY_FIELD_VERSION_NOTE_HINT" default="" required="true"/>
+    <field name="save_date" type="datetime" label="COM_UCMHISTORY_FIELD_SAVE_DATE_LABEL" description="COM_UCMHISTORY_FIELD_SAVE_DATE_DESC" hint="COM_UCMHISTORY_FIELD_SAVE_DATE_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="editor_user_id" type="int" label="COM_UCMHISTORY_FIELD_EDITOR_USER_ID_LABEL" description="COM_UCMHISTORY_FIELD_EDITOR_USER_ID_DESC" hint="COM_UCMHISTORY_FIELD_EDITOR_USER_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="character_count" type="int" label="COM_UCMHISTORY_FIELD_CHARACTER_COUNT_LABEL" description="COM_UCMHISTORY_FIELD_CHARACTER_COUNT_DESC" hint="COM_UCMHISTORY_FIELD_CHARACTER_COUNT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="sha1_hash" type="varchar" label="COM_UCMHISTORY_FIELD_SHA1_HASH_LABEL" description="COM_UCMHISTORY_FIELD_SHA1_HASH_DESC" hint="COM_UCMHISTORY_FIELD_SHA1_HASH_HINT" default="" required="true"/>
+    <field name="version_data" type="mediumtext" label="COM_UCMHISTORY_FIELD_VERSION_DATA_LABEL" description="COM_UCMHISTORY_FIELD_VERSION_DATA_DESC" hint="COM_UCMHISTORY_FIELD_VERSION_DATA_HINT" required="true"/>
+    <field name="keep_forever" type="tinyint" label="COM_UCMHISTORY_FIELD_KEEP_FOREVER_LABEL" description="COM_UCMHISTORY_FIELD_KEEP_FOREVER_DESC" hint="COM_UCMHISTORY_FIELD_KEEP_FOREVER_HINT"/>
+  </fields>
+  <relations>
+    <belongsTo name="ucm_content" entity="Joomla3\Entity\UcmContent" reference="ucm_item_id"/>
+    <belongsTo name="ucm_type" entity="Joomla3\Entity\ContentType" reference="ucm_type_id"/>
+    <belongsTo name="editor" entity="Joomla3\Entity\User" reference="editor_user_id"/>
+    <belongsTo name="user" entity="User" reference="editor_user_id"/>
+  </relations>
+</entity>

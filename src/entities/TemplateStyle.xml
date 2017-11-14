@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\TemplateStyle" role="default">
+  <storage>
+    <default table="template_styles" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" input="number" label="JGLOBAL_FIELD_ID_LABEL" description="JGLOBAL_FIELD_ID_DESC" hint="JGLOBAL_FIELD_ID_HINT" default="0" required="true" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="template" type="varchar" input="text" label="COM_TEMPLATES_FIELD_TEMPLATE_LABEL" description="COM_TEMPLATES_FIELD_TEMPLATE_DESC" hint="COM_TEMPLATES_FIELD_TEMPLATE_HINT" default="" required="true" size="30" readonly="true">
+      <validation rule="maxlen" value="30"/>
+    </field>
+    <field name="client_id" type="boolean" input="hidden" label="COM_TEMPLATES_FIELD_CLIENT_LABEL" description="COM_TEMPLATES_FIELD_CLIENT_DESC" hint="COM_TEMPLATES_FIELD_CLIENT_HINT" default="0" required="true" readonly="true"/>
+    <field name="home" type="char" label="COM_TEMPLATESTYLE_FIELD_HOME_LABEL" description="COM_TEMPLATESTYLE_FIELD_HOME_DESC" hint="COM_TEMPLATESTYLE_FIELD_HOME_HINT" default="0" required="true"/>
+    <field name="title" type="varchar" role="title" input="text" label="COM_TEMPLATES_FIELD_TITLE_LABEL" description="COM_TEMPLATES_FIELD_TITLE_DESC" hint="COM_TEMPLATES_FIELD_TITLE_HINT" default="" required="true" size="50">
+      <validation rule="maxlen" value="50"/>
+    </field>
+    <field name="params" type="text" label="COM_TEMPLATESTYLE_FIELD_PARAMS_LABEL" description="COM_TEMPLATESTYLE_FIELD_PARAMS_DESC" hint="COM_TEMPLATESTYLE_FIELD_PARAMS_HINT" required="true"/>
+  </fields>
+  <relations>
+    <hasMany name="menus" entity="Menu" reference="template_style_id"/>
+  </relations>
+</entity>

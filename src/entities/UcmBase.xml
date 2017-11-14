@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\UcmBase" role="default">
+  <storage>
+    <default table="ucm_base" primary="ucm_id"/>
+  </storage>
+  <fields>
+    <field name="ucm_id" type="int" label="COM_UCMBASE_FIELD_UCM_ID_LABEL" description="COM_UCMBASE_FIELD_UCM_ID_DESC" hint="COM_UCMBASE_FIELD_UCM_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="ucm_item_id" type="int" label="COM_UCMBASE_FIELD_UCM_ITEM_ID_LABEL" description="COM_UCMBASE_FIELD_UCM_ITEM_ID_DESC" hint="COM_UCMBASE_FIELD_UCM_ITEM_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="ucm_type_id" type="int" label="COM_UCMBASE_FIELD_UCM_TYPE_ID_LABEL" description="COM_UCMBASE_FIELD_UCM_TYPE_ID_DESC" hint="COM_UCMBASE_FIELD_UCM_TYPE_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="ucm_language_id" type="int" label="COM_UCMBASE_FIELD_UCM_LANGUAGE_ID_LABEL" description="COM_UCMBASE_FIELD_UCM_LANGUAGE_ID_DESC" hint="COM_UCMBASE_FIELD_UCM_LANGUAGE_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="ucm_content" entity="UcmContent" reference="ucm_id"/>
+    <belongsTo name="ucm_item" entity="@ucm_content.core_type_alias" reference="ucm_item_id"/>
+    <belongsTo name="ucm_type" entity="Joomla3\Entity\ContentType" reference="ucm_type_id"/>
+    <belongsTo name="ucm_language" entity="Joomla3\Entity\Language" reference="ucm_language_id"/>
+  </relations>
+</entity>

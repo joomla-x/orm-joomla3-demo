@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Language" role="default">
+  <storage>
+    <default table="languages" primary="lang_id"/>
+  </storage>
+  <fields>
+    <field name="lang_id" type="int" input="text" label="JGLOBAL_FIELD_ID_LABEL" description="JGLOBAL_FIELD_ID_DESC" hint="JGLOBAL_FIELD_ID_HINT" default="0" required="true" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="asset_id" type="int" label="COM_LANGUAGE_FIELD_ASSET_ID_LABEL" description="COM_LANGUAGE_FIELD_ASSET_ID_DESC" hint="COM_LANGUAGE_FIELD_ASSET_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="lang_code" type="char" input="text" label="COM_LANGUAGES_FIELD_LANG_TAG_LABEL" description="COM_LANGUAGES_FIELD_LANG_TAG_DESC" hint="COM_LANGUAGES_FIELD_LANG_TAG_HINT" required="true" size="10">
+      <validation rule="maxlen" value="10"/>
+    </field>
+    <field name="title" type="varchar" role="title" input="text" label="JGLOBAL_TITLE" description="COM_LANGUAGES_FIELD_TITLE_DESC" hint="COM_LANGUAGES_FIELD_TITLE_HINT" required="true" size="40">
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="title_native" type="varchar" input="text" label="COM_LANGUAGES_FIELD_TITLE_NATIVE_LABEL" description="COM_LANGUAGES_FIELD_TITLE_NATIVE_DESC" hint="COM_LANGUAGES_FIELD_TITLE_NATIVE_HINT" required="true" size="40">
+      <validation rule="maxlen" value="40"/>
+    </field>
+    <field name="sef" type="varchar" input="text" label="COM_LANGUAGES_FIELD_LANG_CODE_LABEL" description="COM_LANGUAGES_FIELD_LANG_CODE_DESC" hint="COM_LANGUAGES_FIELD_LANG_CODE_HINT" required="true" size="10">
+      <validation rule="maxlen" value="10"/>
+    </field>
+    <field name="image" type="varchar" input="filelist" label="COM_LANGUAGES_FIELD_IMAGE_LABEL" description="COM_LANGUAGES_FIELD_IMAGE_DESC" hint="COM_LANGUAGES_FIELD_IMAGE_HINT" required="true" filter="\.gif$" size="10">
+      <validation rule="maxlen" value="10"/>
+      <option value="">JNONE</option>
+    </field>
+    <field name="description" type="varchar" input="textarea" label="JGLOBAL_DESCRIPTION" description="COM_LANGUAGES_FIELD_DESCRIPTION_DESC" hint="COM_LANGUAGES_FIELD_DESCRIPTION_HINT" required="true"/>
+    <field name="metakey" type="text" input="textarea" label="JFIELD_META_KEYWORDS_LABEL" description="JFIELD_META_KEYWORDS_DESC" hint="JFIELD_META_KEYWORDS_HINT" required="true"/>
+    <field name="metadesc" type="text" input="textarea" label="JFIELD_META_DESCRIPTION_LABEL" description="JFIELD_META_DESCRIPTION_DESC" hint="JFIELD_META_DESCRIPTION_HINT" required="true"/>
+    <field name="sitename" type="varchar" input="text" label="COM_LANGUAGES_FIELD_SITE_NAME_LABEL" description="COM_LANGUAGES_FIELD_SITE_NAME_DESC" hint="COM_LANGUAGES_FIELD_SITE_NAME_HINT" default="" required="true" filter="string" size="50">
+      <validation rule="maxlen" value="50"/>
+    </field>
+    <field name="published" type="int" input="list" label="JSTATUS" description="COM_LANGUAGES_FIELD_PUBLISHED_DESC" hint="COM_LANGUAGES_FIELD_PUBLISHED_HINT" default="0" required="true" size="1">
+      <validation rule="integer" value="1"/>
+      <validation rule="minvalue" value="-9"/>
+      <validation rule="maxvalue" value="9"/>
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="access" type="int" input="accesslevel" label="JFIELD_ACCESS_LABEL" description="JFIELD_ACCESS_DESC" hint="JFIELD_ACCESS_HINT" default="0" required="true" size="1">
+      <validation rule="integer" value="1"/>
+      <validation rule="minvalue" value="-9"/>
+      <validation rule="maxvalue" value="9"/>
+    </field>
+    <field name="ordering" type="int" role="ordering" label="COM_LANGUAGE_FIELD_ORDERING_LABEL" description="COM_LANGUAGE_FIELD_ORDERING_DESC" hint="COM_LANGUAGE_FIELD_ORDERING_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="asset" entity="Joomla3\Entity\Asset" reference="asset_id"/>
+    <hasMany name="ucmbases" entity="UcmBase" reference="ucm_language_id"/>
+  </relations>
+</entity>

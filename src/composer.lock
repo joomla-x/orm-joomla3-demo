@@ -580,12 +580,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-x/entities-joomla3.git",
-                "reference": "eb823e77a41bdc2795dc0ee490d9982de196c7e0"
+                "reference": "60468a1dc7ef15137e065dacfbb812ef173643b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-x/entities-joomla3/zipball/eb823e77a41bdc2795dc0ee490d9982de196c7e0",
-                "reference": "eb823e77a41bdc2795dc0ee490d9982de196c7e0",
+                "url": "https://api.github.com/repos/joomla-x/entities-joomla3/zipball/60468a1dc7ef15137e065dacfbb812ef173643b1",
+                "reference": "60468a1dc7ef15137e065dacfbb812ef173643b1",
                 "shasum": ""
             },
             "type": "library",
@@ -600,7 +600,7 @@
                 }
             ],
             "description": "ORM entity definitions for Joomla!3 entities",
-            "time": "2017-11-13T16:03:02+00:00"
+            "time": "2017-11-14T19:56:25+00:00"
         },
         {
             "name": "joomla-x/event",
@@ -654,12 +654,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-x/orm.git",
-                "reference": "3a010edc4d28930fe4204bdefe49bcb241fa452f"
+                "reference": "a3317640b92501780a2cef8ec9e6a3a275924eb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-x/orm/zipball/3a010edc4d28930fe4204bdefe49bcb241fa452f",
-                "reference": "3a010edc4d28930fe4204bdefe49bcb241fa452f",
+                "url": "https://api.github.com/repos/joomla-x/orm/zipball/a3317640b92501780a2cef8ec9e6a3a275924eb0",
+                "reference": "a3317640b92501780a2cef8ec9e6a3a275924eb0",
                 "shasum": ""
             },
             "require": {
@@ -700,7 +700,7 @@
                 "orm",
                 "repository"
             ],
-            "time": "2017-11-13T16:02:18+00:00"
+            "time": "2017-11-14T19:48:04+00:00"
         },
         {
             "name": "joomla-x/orm-joomla3",
@@ -708,19 +708,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-x/orm-joomla3.git",
-                "reference": "1f1e75f6f7ba4f8312f286821233cb2cd7b1e5b9"
+                "reference": "a5220de08aa5c6a53e2b907d4f175cf3c9ebaf6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-x/orm-joomla3/zipball/1f1e75f6f7ba4f8312f286821233cb2cd7b1e5b9",
-                "reference": "1f1e75f6f7ba4f8312f286821233cb2cd7b1e5b9",
+                "url": "https://api.github.com/repos/joomla-x/orm-joomla3/zipball/a5220de08aa5c6a53e2b907d4f175cf3c9ebaf6d",
+                "reference": "a5220de08aa5c6a53e2b907d4f175cf3c9ebaf6d",
                 "shasum": ""
             },
             "require": {
                 "joomla-x/entities-joomla3": "dev-master",
                 "joomla-x/orm": "dev-master"
             },
+            "bin": [
+                "bin/orm-init"
+            ],
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Joomla3\\Glue\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL2+"
@@ -733,7 +741,7 @@
             ],
             "description": "Meta package for integration of the Joomla!X ORM into Joomla!3",
             "homepage": "https://github.com/joomla-x/orm-joomla3",
-            "time": "2017-11-13T16:01:32+00:00"
+            "time": "2017-11-14T19:57:40+00:00"
         },
         {
             "name": "joomla/compat",

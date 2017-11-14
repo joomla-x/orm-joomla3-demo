@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\ContentTagMap" role="map">
+  <storage>
+    <default table="contentitem_tag_map"/>
+  </storage>
+  <fields>
+    <field name="type_alias" type="varchar" label="COM_CONTENTTAGMAP_FIELD_TYPE_ALIAS_LABEL" description="COM_CONTENTTAGMAP_FIELD_TYPE_ALIAS_DESC" hint="COM_CONTENTTAGMAP_FIELD_TYPE_ALIAS_HINT" default="" required="true"/>
+    <field name="core_content_id" type="int" label="COM_CONTENTTAGMAP_FIELD_CORE_CONTENT_ID_LABEL" description="COM_CONTENTTAGMAP_FIELD_CORE_CONTENT_ID_DESC" hint="COM_CONTENTTAGMAP_FIELD_CORE_CONTENT_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="content_item_id" type="int" label="COM_CONTENTTAGMAP_FIELD_CONTENT_ITEM_ID_LABEL" description="COM_CONTENTTAGMAP_FIELD_CONTENT_ITEM_ID_DESC" hint="COM_CONTENTTAGMAP_FIELD_CONTENT_ITEM_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="tag_id" type="int" label="COM_CONTENTTAGMAP_FIELD_TAG_ID_LABEL" description="COM_CONTENTTAGMAP_FIELD_TAG_ID_DESC" hint="COM_CONTENTTAGMAP_FIELD_TAG_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="tag_date" type="timestamp" label="COM_CONTENTTAGMAP_FIELD_TAG_DATE_LABEL" description="COM_CONTENTTAGMAP_FIELD_TAG_DATE_DESC" hint="COM_CONTENTTAGMAP_FIELD_TAG_DATE_HINT" default="CURRENT_TIMESTAMP" required="true"/>
+    <field name="type_id" type="mediumint" label="COM_CONTENTTAGMAP_FIELD_TYPE_ID_LABEL" description="COM_CONTENTTAGMAP_FIELD_TYPE_ID_DESC" hint="COM_CONTENTTAGMAP_FIELD_TYPE_ID_HINT" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="ucm_content" entity="UcmContent" reference="core_content_id"/>
+    <belongsTo name="content_item" entity="@type_alias" reference="content_item_id"/>
+    <belongsTo name="tag" entity="Tag" reference="tag_id"/>
+    <belongsTo name="type" entity="Joomla3\Entity\ContentType" reference="type_id"/>
+  </relations>
+</entity>

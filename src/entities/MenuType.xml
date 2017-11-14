@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\MenuType" role="default">
+  <storage>
+    <default table="menu_types" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" label="COM_MENUTYPE_FIELD_ID_LABEL" description="COM_MENUTYPE_FIELD_ID_DESC" hint="COM_MENUTYPE_FIELD_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="asset_id" type="int" label="COM_MENUTYPE_FIELD_ASSET_ID_LABEL" description="COM_MENUTYPE_FIELD_ASSET_ID_DESC" hint="COM_MENUTYPE_FIELD_ASSET_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="menutype" type="varchar" label="COM_MENUTYPE_FIELD_MENUTYPE_LABEL" description="COM_MENUTYPE_FIELD_MENUTYPE_DESC" hint="COM_MENUTYPE_FIELD_MENUTYPE_HINT" required="true"/>
+    <field name="title" type="varchar" role="title" label="COM_MENUTYPE_FIELD_TITLE_LABEL" description="COM_MENUTYPE_FIELD_TITLE_DESC" hint="COM_MENUTYPE_FIELD_TITLE_HINT" required="true"/>
+    <field name="description" type="varchar" label="COM_MENUTYPE_FIELD_DESCRIPTION_LABEL" description="COM_MENUTYPE_FIELD_DESCRIPTION_DESC" hint="COM_MENUTYPE_FIELD_DESCRIPTION_HINT" default="" required="true"/>
+    <field name="client_id" type="int" label="COM_MENUTYPE_FIELD_CLIENT_ID_LABEL" description="COM_MENUTYPE_FIELD_CLIENT_ID_DESC" hint="COM_MENUTYPE_FIELD_CLIENT_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="asset" entity="Joomla3\Entity\Asset" reference="asset_id"/>
+  </relations>
+</entity>

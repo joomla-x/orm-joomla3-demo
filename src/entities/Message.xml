@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Message" role="default">
+  <storage>
+    <default table="messages" primary="message_id"/>
+  </storage>
+  <fields>
+    <field name="message_id" type="int" label="COM_MESSAGE_FIELD_MESSAGE_ID_LABEL" description="COM_MESSAGE_FIELD_MESSAGE_ID_DESC" hint="COM_MESSAGE_FIELD_MESSAGE_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="user_id_from" type="int" label="COM_MESSAGE_FIELD_USER_ID_FROM_LABEL" description="COM_MESSAGE_FIELD_USER_ID_FROM_DESC" hint="COM_MESSAGE_FIELD_USER_ID_FROM_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="user_id_to" type="int" input="usermessages" label="COM_MESSAGES_FIELD_USER_ID_TO_LABEL" description="COM_MESSAGES_FIELD_USER_ID_TO_DESC" hint="COM_MESSAGES_FIELD_USER_ID_TO_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="folder_id" type="tinyint" label="COM_MESSAGE_FIELD_FOLDER_ID_LABEL" description="COM_MESSAGE_FIELD_FOLDER_ID_DESC" hint="COM_MESSAGE_FIELD_FOLDER_ID_HINT" default="0" required="true"/>
+    <field name="date_time" type="datetime" label="COM_MESSAGE_FIELD_DATE_TIME_LABEL" description="COM_MESSAGE_FIELD_DATE_TIME_DESC" hint="COM_MESSAGE_FIELD_DATE_TIME_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="state" type="boolean" role="state" label="COM_MESSAGE_FIELD_STATE_LABEL" description="COM_MESSAGE_FIELD_STATE_DESC" hint="COM_MESSAGE_FIELD_STATE_HINT" default="0" required="true"/>
+    <field name="priority" type="boolean" label="COM_MESSAGE_FIELD_PRIORITY_LABEL" description="COM_MESSAGE_FIELD_PRIORITY_DESC" hint="COM_MESSAGE_FIELD_PRIORITY_HINT" default="0" required="true"/>
+    <field name="subject" type="varchar" input="text" label="COM_MESSAGES_FIELD_SUBJECT_LABEL" description="COM_MESSAGES_FIELD_SUBJECT_DESC" hint="COM_MESSAGES_FIELD_SUBJECT_HINT" default="" required="true"/>
+    <field name="message" type="text" input="editor" label="COM_MESSAGES_FIELD_MESSAGE_LABEL" description="COM_MESSAGES_FIELD_MESSAGE_DESC" hint="COM_MESSAGES_FIELD_MESSAGE_HINT" required="true" filter="JComponentHelper::filterText"/>
+  </fields>
+  <relations>
+    <belongsTo name="sender" entity="Joomla3\Entity\User" reference="user_id_from"/>
+    <belongsTo name="recipient" entity="Joomla3\Entity\User" reference="user_id_to"/>
+    <belongsTo name="user" entity="User" reference="user_id_to"/>
+  </relations>
+</entity>

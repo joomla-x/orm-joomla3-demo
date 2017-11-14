@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Association" role="default">
+  <storage>
+    <default table="associations" primary="context,id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" label="COM_ASSOCIATION_FIELD_ID_LABEL" description="COM_ASSOCIATION_FIELD_ID_DESC" hint="COM_ASSOCIATION_FIELD_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="context" type="varchar" label="COM_ASSOCIATION_FIELD_CONTEXT_LABEL" description="COM_ASSOCIATION_FIELD_CONTEXT_DESC" hint="COM_ASSOCIATION_FIELD_CONTEXT_HINT" required="true"/>
+    <field name="key" type="char" label="COM_ASSOCIATION_FIELD_KEY_LABEL" description="COM_ASSOCIATION_FIELD_KEY_DESC" hint="COM_ASSOCIATION_FIELD_KEY_HINT" required="true"/>
+  </fields>
+  <relations/>
+</entity>

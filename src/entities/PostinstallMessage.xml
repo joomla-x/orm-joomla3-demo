@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\PostinstallMessage" role="default">
+  <storage>
+    <default table="postinstall_messages" primary="postinstall_message_id"/>
+  </storage>
+  <fields>
+    <field name="postinstall_message_id" type="bigint" label="COM_POSTINSTALLMESSAGE_FIELD_POSTINSTALL_MESSAGE_ID_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_POSTINSTALL_MESSAGE_ID_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_POSTINSTALL_MESSAGE_ID_HINT" required="true"/>
+    <field name="extension_id" type="bigint" label="COM_POSTINSTALLMESSAGE_FIELD_EXTENSION_ID_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_EXTENSION_ID_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_EXTENSION_ID_HINT" default="700" required="true"/>
+    <field name="title_key" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_TITLE_KEY_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_TITLE_KEY_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_TITLE_KEY_HINT" default="" required="true"/>
+    <field name="description_key" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_DESCRIPTION_KEY_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_DESCRIPTION_KEY_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_DESCRIPTION_KEY_HINT" default="" required="true"/>
+    <field name="action_key" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_ACTION_KEY_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_ACTION_KEY_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_ACTION_KEY_HINT" default="" required="true"/>
+    <field name="language_extension" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_LANGUAGE_EXTENSION_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_LANGUAGE_EXTENSION_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_LANGUAGE_EXTENSION_HINT" default="com_postinstall" required="true"/>
+    <field name="language_client_id" type="tinyint" label="COM_POSTINSTALLMESSAGE_FIELD_LANGUAGE_CLIENT_ID_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_LANGUAGE_CLIENT_ID_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_LANGUAGE_CLIENT_ID_HINT" default="1" required="true"/>
+    <field name="type" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_TYPE_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_TYPE_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_TYPE_HINT" default="link" required="true"/>
+    <field name="action_file" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_ACTION_FILE_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_ACTION_FILE_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_ACTION_FILE_HINT" default=""/>
+    <field name="action" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_ACTION_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_ACTION_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_ACTION_HINT" default=""/>
+    <field name="condition_file" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_CONDITION_FILE_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_CONDITION_FILE_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_CONDITION_FILE_HINT" default="NULL"/>
+    <field name="condition_method" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_CONDITION_METHOD_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_CONDITION_METHOD_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_CONDITION_METHOD_HINT" default="NULL"/>
+    <field name="version_introduced" type="varchar" label="COM_POSTINSTALLMESSAGE_FIELD_VERSION_INTRODUCED_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_VERSION_INTRODUCED_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_VERSION_INTRODUCED_HINT" default="3.2.0" required="true"/>
+    <field name="enabled" type="tinyint" label="COM_POSTINSTALLMESSAGE_FIELD_ENABLED_LABEL" description="COM_POSTINSTALLMESSAGE_FIELD_ENABLED_DESC" hint="COM_POSTINSTALLMESSAGE_FIELD_ENABLED_HINT" default="1" required="true"/>
+  </fields>
+  <relations>
+    <belongsTo name="extension" entity="Joomla3\Entity\Extension" reference="extension_id"/>
+  </relations>
+</entity>

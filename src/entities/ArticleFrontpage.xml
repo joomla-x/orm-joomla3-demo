@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\ArticleFrontpage" role="default">
+  <storage>
+    <default table="content_frontpage" primary="content_id"/>
+  </storage>
+  <fields>
+    <field name="content_id" type="int" label="COM_ARTICLEFRONTPAGE_FIELD_CONTENT_ID_LABEL" description="COM_ARTICLEFRONTPAGE_FIELD_CONTENT_ID_DESC" hint="COM_ARTICLEFRONTPAGE_FIELD_CONTENT_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="ordering" type="int" role="ordering" label="COM_ARTICLEFRONTPAGE_FIELD_ORDERING_LABEL" description="COM_ARTICLEFRONTPAGE_FIELD_ORDERING_DESC" hint="COM_ARTICLEFRONTPAGE_FIELD_ORDERING_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="article" entity="Joomla3\Entity\Article" reference="content_id"/>
+  </relations>
+</entity>

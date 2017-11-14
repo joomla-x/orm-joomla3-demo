@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\Menu" role="default">
+  <storage>
+    <default table="menu" primary="id"/>
+  </storage>
+  <fields>
+    <field name="id" type="int" role="id" input="hidden" label="COM_MENU_FIELD_ID_LABEL" description="COM_MENU_FIELD_ID_DESC" hint="COM_MENU_FIELD_ID_HINT" default="0" required="true" filter="int" readonly="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="menutype" type="varchar" input="text" label="COM_MENUS_MENU_MENUTYPE_LABEL" description="COM_MENUS_MENU_MENUTYPE_DESC" hint="COM_MENUS_MENU_MENUTYPE_HINT" required="true" size="30">
+      <validation rule="maxlen" value="30"/>
+    </field>
+    <field name="title" type="varchar" role="title" input="text" label="JGLOBAL_TITLE" description="COM_MENUS_MENU_TITLE_DESC" hint="COM_MENUS_MENU_TITLE_HINT" required="true" size="30">
+      <validation rule="maxlen" value="30"/>
+    </field>
+    <field name="alias" type="varchar" label="COM_MENU_FIELD_ALIAS_LABEL" description="COM_MENU_FIELD_ALIAS_DESC" hint="COM_MENU_FIELD_ALIAS_HINT" required="true"/>
+    <field name="note" type="varchar" label="COM_MENU_FIELD_NOTE_LABEL" description="COM_MENU_FIELD_NOTE_DESC" hint="COM_MENU_FIELD_NOTE_HINT" default="" required="true"/>
+    <field name="path" type="varchar" label="COM_MENU_FIELD_PATH_LABEL" description="COM_MENU_FIELD_PATH_DESC" hint="COM_MENU_FIELD_PATH_HINT" required="true"/>
+    <field name="link" type="varchar" label="COM_MENU_FIELD_LINK_LABEL" description="COM_MENU_FIELD_LINK_DESC" hint="COM_MENU_FIELD_LINK_HINT" required="true"/>
+    <field name="type" type="varchar" label="COM_MENU_FIELD_TYPE_LABEL" description="COM_MENU_FIELD_TYPE_DESC" hint="COM_MENU_FIELD_TYPE_HINT" required="true"/>
+    <field name="published" type="tinyint" label="COM_MENU_FIELD_PUBLISHED_LABEL" description="COM_MENU_FIELD_PUBLISHED_DESC" hint="COM_MENU_FIELD_PUBLISHED_HINT" default="0" required="true"/>
+    <field name="parent_id" type="int" label="COM_MENU_FIELD_PARENT_ID_LABEL" description="COM_MENU_FIELD_PARENT_ID_DESC" hint="COM_MENU_FIELD_PARENT_ID_HINT" default="1" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="level" type="int" label="COM_MENU_FIELD_LEVEL_LABEL" description="COM_MENU_FIELD_LEVEL_DESC" hint="COM_MENU_FIELD_LEVEL_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="component_id" type="int" label="COM_MENU_FIELD_COMPONENT_ID_LABEL" description="COM_MENU_FIELD_COMPONENT_ID_DESC" hint="COM_MENU_FIELD_COMPONENT_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="checked_out" type="int" role="checked_out_by" label="COM_MENU_FIELD_CHECKED_OUT_LABEL" description="COM_MENU_FIELD_CHECKED_OUT_DESC" hint="COM_MENU_FIELD_CHECKED_OUT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="checked_out_time" type="datetime" role="checked_out_time" label="COM_MENU_FIELD_CHECKED_OUT_TIME_LABEL" description="COM_MENU_FIELD_CHECKED_OUT_TIME_DESC" hint="COM_MENU_FIELD_CHECKED_OUT_TIME_HINT" default="0000-00-00 00:00:00" required="true"/>
+    <field name="browserNav" type="tinyint" label="COM_MENU_FIELD_BROWSERNAV_LABEL" description="COM_MENU_FIELD_BROWSERNAV_DESC" hint="COM_MENU_FIELD_BROWSERNAV_HINT" default="0" required="true"/>
+    <field name="access" type="int" label="COM_MENU_FIELD_ACCESS_LABEL" description="COM_MENU_FIELD_ACCESS_DESC" hint="COM_MENU_FIELD_ACCESS_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="img" type="varchar" label="COM_MENU_FIELD_IMG_LABEL" description="COM_MENU_FIELD_IMG_DESC" hint="COM_MENU_FIELD_IMG_HINT" required="true"/>
+    <field name="template_style_id" type="int" label="COM_MENU_FIELD_TEMPLATE_STYLE_ID_LABEL" description="COM_MENU_FIELD_TEMPLATE_STYLE_ID_DESC" hint="COM_MENU_FIELD_TEMPLATE_STYLE_ID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="params" type="text" label="COM_MENU_FIELD_PARAMS_LABEL" description="COM_MENU_FIELD_PARAMS_DESC" hint="COM_MENU_FIELD_PARAMS_HINT" required="true"/>
+    <field name="lft" type="int" label="COM_MENU_FIELD_LFT_LABEL" description="COM_MENU_FIELD_LFT_DESC" hint="COM_MENU_FIELD_LFT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="rgt" type="int" label="COM_MENU_FIELD_RGT_LABEL" description="COM_MENU_FIELD_RGT_DESC" hint="COM_MENU_FIELD_RGT_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="home" type="tinyint" label="COM_MENU_FIELD_HOME_LABEL" description="COM_MENU_FIELD_HOME_DESC" hint="COM_MENU_FIELD_HOME_HINT" default="0" required="true"/>
+    <field name="language" type="char" label="COM_MENU_FIELD_LANGUAGE_LABEL" description="COM_MENU_FIELD_LANGUAGE_DESC" hint="COM_MENU_FIELD_LANGUAGE_HINT" default="" required="true"/>
+    <field name="client_id" type="tinyint" input="radio" label="COM_MENUS_MENU_CLIENT_ID_LABEL" description="COM_MENUS_MENU_CLIENT_ID_DESC" hint="COM_MENUS_MENU_CLIENT_ID_HINT" default="0" required="true">
+      <option value="0">JSITE</option>
+      <option value="1">JADMINISTRATOR</option>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="parent" entity="Joomla3\Entity\Menu" reference="parent_id"/>
+    <belongsTo name="component" entity="Joomla3\Entity\Extension" reference="component_id"/>
+    <belongsTo name="template_style" entity="TemplateStyle" reference="template_style_id"/>
+    <belongsTo name="menu" entity="Menu" reference="parent_id"/>
+    <hasMany name="children" entity="Joomla3\Entity\Menu" reference="parent_id"/>
+    <hasMany name="menus" entity="Menu" reference="parent_id"/>
+    <hasMany name="modulemenus" entity="ModuleMenu" reference="menuid"/>
+  </relations>
+</entity>

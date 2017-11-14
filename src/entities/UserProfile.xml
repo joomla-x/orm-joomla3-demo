@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\UserProfile" role="default">
+  <storage>
+    <default table="user_profiles"/>
+  </storage>
+  <fields>
+    <field name="user_id" type="int" label="COM_USERPROFILE_FIELD_USER_ID_LABEL" description="COM_USERPROFILE_FIELD_USER_ID_DESC" hint="COM_USERPROFILE_FIELD_USER_ID_HINT" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="profile_key" type="varchar" label="COM_USERPROFILE_FIELD_PROFILE_KEY_LABEL" description="COM_USERPROFILE_FIELD_PROFILE_KEY_DESC" hint="COM_USERPROFILE_FIELD_PROFILE_KEY_HINT" required="true"/>
+    <field name="profile_value" type="text" label="COM_USERPROFILE_FIELD_PROFILE_VALUE_LABEL" description="COM_USERPROFILE_FIELD_PROFILE_VALUE_DESC" hint="COM_USERPROFILE_FIELD_PROFILE_VALUE_HINT" required="true"/>
+    <field name="ordering" type="int" role="ordering" label="COM_USERPROFILE_FIELD_ORDERING_LABEL" description="COM_USERPROFILE_FIELD_ORDERING_DESC" hint="COM_USERPROFILE_FIELD_ORDERING_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="user" entity="Joomla3\Entity\User" reference="user_id"/>
+  </relations>
+</entity>

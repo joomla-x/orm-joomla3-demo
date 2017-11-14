@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entity SYSTEM "https://raw.githubusercontent.com/joomla-x/orm/master/src/Definition/entity.dtd">
+<entity name="Joomla3\Entity\ModuleMenu" role="map">
+  <storage>
+    <default table="modules_menu" primary="moduleid,menuid"/>
+  </storage>
+  <fields>
+    <field name="moduleid" type="int" label="COM_MODULEMENU_FIELD_MODULEID_LABEL" description="COM_MODULEMENU_FIELD_MODULEID_DESC" hint="COM_MODULEMENU_FIELD_MODULEID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+    <field name="menuid" type="int" label="COM_MODULEMENU_FIELD_MENUID_LABEL" description="COM_MODULEMENU_FIELD_MENUID_DESC" hint="COM_MODULEMENU_FIELD_MENUID_HINT" default="0" required="true">
+      <validation rule="integer" value="1"/>
+    </field>
+  </fields>
+  <relations>
+    <belongsTo name="module" entity="Joomla3\Entity\Module" reference="moduleid"/>
+    <belongsTo name="menu" entity="Joomla3\Entity\Menu" reference="menuid"/>
+  </relations>
+</entity>
