@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.1" method="upgrade">
+	<name>com_demo</name>
+	<author>Joomla! Project</author>
+	<creationDate>Nov 2017</creationDate>
+	<copyright>(C) 2017 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>0.0.0</version>
+	<description>Demo</description>
+
+	<files folder="site">
+		<filename>demo.php</filename>
+	</files>
+	<administration>
+		<menu>com_demo</menu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>demo.php</filename>
+			<filename>config.xml</filename>
+		</files>
+	</administration>
+</extension>

@@ -580,12 +580,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-x/entities-joomla3.git",
-                "reference": "60468a1dc7ef15137e065dacfbb812ef173643b1"
+                "reference": "fa080d8208f97daf1159c22312ea50e6c2e31581"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-x/entities-joomla3/zipball/60468a1dc7ef15137e065dacfbb812ef173643b1",
-                "reference": "60468a1dc7ef15137e065dacfbb812ef173643b1",
+                "url": "https://api.github.com/repos/joomla-x/entities-joomla3/zipball/fa080d8208f97daf1159c22312ea50e6c2e31581",
+                "reference": "fa080d8208f97daf1159c22312ea50e6c2e31581",
                 "shasum": ""
             },
             "type": "library",
@@ -600,7 +600,7 @@
                 }
             ],
             "description": "ORM entity definitions for Joomla!3 entities",
-            "time": "2017-11-14T19:56:25+00:00"
+            "time": "2017-11-14T21:02:11+00:00"
         },
         {
             "name": "joomla-x/event",
@@ -708,12 +708,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-x/orm-joomla3.git",
-                "reference": "a5220de08aa5c6a53e2b907d4f175cf3c9ebaf6d"
+                "reference": "560c4a1ea9f00760d7c05f36147e7e33fdf7e234"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-x/orm-joomla3/zipball/a5220de08aa5c6a53e2b907d4f175cf3c9ebaf6d",
-                "reference": "a5220de08aa5c6a53e2b907d4f175cf3c9ebaf6d",
+                "url": "https://api.github.com/repos/joomla-x/orm-joomla3/zipball/560c4a1ea9f00760d7c05f36147e7e33fdf7e234",
+                "reference": "560c4a1ea9f00760d7c05f36147e7e33fdf7e234",
                 "shasum": ""
             },
             "require": {
@@ -741,7 +741,7 @@
             ],
             "description": "Meta package for integration of the Joomla!X ORM into Joomla!3",
             "homepage": "https://github.com/joomla-x/orm-joomla3",
-            "time": "2017-11-14T19:57:40+00:00"
+            "time": "2017-11-14T21:02:56+00:00"
         },
         {
             "name": "joomla/compat",
