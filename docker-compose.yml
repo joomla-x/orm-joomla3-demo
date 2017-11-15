@@ -23,7 +23,6 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: sqladmin
       MYSQL_PASSWORD: sqladmin
-    user: $UID
     networks:
       - webnet
   pma:
