@@ -3,3 +3,4 @@
 /administrator/cache
 /administrator/logs
 /vendor
+!/libraries/vendor/
